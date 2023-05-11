@@ -13,6 +13,7 @@ module.exports = {
               'fondo':'url("../src/img/fondo.png")',
               'fondomain':'url("../src/img/grupo.png")',
               'fondoRegistro':'url("../src/img/fondoRegistro.png")',
+              'fondo2':'url("../src/img/fondo3.png")',
             },
         },
     },
