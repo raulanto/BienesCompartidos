@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
     content: ["./src/**/*.{html,js}",
-            "./src/public/*.{html,js}"  ],
+            "./src/public/*.{html,js,php}"  ],
     theme: {
         extend: {
             colors: {
@@ -14,6 +14,8 @@ module.exports = {
               'fondomain':'url("../src/img/grupo.png")',
               'fondoRegistro':'url("../src/img/fondoRegistro.png")',
               'fondo2':'url("../src/img/fondo3.png")',
+              'bienescompartidosBL':'url("../src/img/icons/bienescompartidosBL.svg")',
+              'bienescompartidosCL':'url("../src/img/icons/bienescompartidosCL.svg")',
             },
         },
     },

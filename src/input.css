@@ -4,26 +4,41 @@
 
 /* Componentes  */
 @layer components {
-    .a-primary {
-        @apply mx-3 self-center w-fit h-fit hover:underline;
-    }
-    /* Botones */
-    .button-orange{
-        @apply bg-white p-1 px-2 border border-orange-400 text-orange-400 rounded-md font-semibold hover:bg-orange-400 hover:text-white;
-    }
-    .button-danger{
-        @apply bg-white p-1 px-2 border border-red-400 text-red-400 rounded-md font-semibold hover:bg-red-400 hover:text-white;
-    }
-    .button-secundary{
-        @apply bg-indigo-700 p-1 px-2 border border-indigo-700 text-white rounded-md font-semibold hover:bg-white hover:text-indigo-700;
-    }
+  .a-primary {
+    @apply mx-3 self-center w-fit h-fit hover:underline hover:text-purple-600;
+  }
+  /* Botones */
+  .button-orange {
+    @apply bg-white p-1 px-2 border border-orange-400 text-orange-400 rounded-md font-semibold hover:bg-orange-400 hover:text-white;
+  }
+  .button-danger {
+    @apply bg-white p-1 px-2 border border-red-400 text-red-400 rounded-md font-semibold hover:bg-red-400 hover:text-white;
+  }
+  .button-prymary {
+    @apply bg-purple-700 p-1 px-2 border border-purple-700 text-white rounded-md font-semibold hover:bg-white hover:text-purple-700;
+  }
+  .button-secundary {
+    @apply bg-indigo-700 p-1 px-2 border border-indigo-700 text-white rounded-md font-semibold hover:bg-white hover:text-indigo-700;
+  }
+  .button-tercery {
+    @apply bg-sky-700 p-1 px-2 border border-sky-700 text-white rounded-md font-semibold hover:bg-white hover:text-sky-700;
+  }
+  .input-prymary {
+    @apply border  text-base px-2 py-1  focus:outline-none focus:ring-0 focus:border-morado rounded-md;
+  }
 }
 
 /* Base de de html */
 @layer base {
-    h1,h2,h3,h4,h5,h6,p,span {
-        @apply  text-gray-950 ;
-    }
-
-
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span,
+  a {
+    @apply text-gray-950;
+  }
 }
