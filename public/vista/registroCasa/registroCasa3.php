@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- hoja de estilos  -->
-    <link href="../../../../dist/output.css" rel="stylesheet">
+    <link href="../../../dist/output.css" rel="stylesheet">
 
     <title>Registro usuario</title>
     <style>
@@ -38,7 +38,8 @@
     <nav class="flex flex-row p-1 max-w-screen justify-between items-center ">
         <!-- Contenido de la barra de navegación -->
         <div class="flex ml-12 ">
-            <img class="" src="../../../img/icons/bienescompartidosCL.svg" alt="" width="127.78px" height="33px">
+        <img class="" src="../../../src/img/icons/bienescompartidosCL.svg" alt="" width="127.78px" height="33px">
+
             <a href="" class="a-primary text-morado">Inicio</a>
             <a href="" class="a-primary ">Inicio</a>
             <a href="" class="a-primary ">Inicio</a>
@@ -122,7 +123,7 @@
 
         </section>
         <div class="ml-12">
-            <img src="../../../img/icons/bienescompartidosBL.svg" alt="BienesCompartidos" width="135px">
+        <img class="" src="../../../src/img/icons/bienescompartidosBL.svg" alt="" width="127.78px" height="33px">
         </div>
     </footer>
 </body>

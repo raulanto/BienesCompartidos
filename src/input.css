@@ -39,6 +39,6 @@
   p,
   span,
   a {
-    @apply text-gray-950;
+    @apply text-gray-900;
   }
 }

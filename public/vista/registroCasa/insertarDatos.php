@@ -1,6 +1,6 @@
 <?php
 require_once('clases.php');
-require_once('../registroasesor/Asesor.php');
+require_once('../registroasesor/Clases.php');
 session_start();
 
 $inmueble = $_SESSION['Inmueble'];

@@ -15,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- hoja de estilos -->
 
-    <link href="../../../../dist/output.css" rel="stylesheet" />
+    <link href="../../../dist/output.css" rel="stylesheet">
 
     <title>Registro usuario</title>
     <style>
@@ -47,13 +47,8 @@
     <nav class="flex flex-row p-1 max-w-screen justify-between items-center ">
       <!-- Contenido de la barra de navegación -->
       <div class="flex ml-12 ">
-        <img
-          class=""
-          src="../../../img/icons/bienescompartidosCL.svg"
-          alt=""
-          width="127.78px"
-          height="33px"
-        />
+      <img class="" src="../../../src/img/icons/bienescompartidosCL.svg" alt="" width="127.78px" height="33px">
+
         <a href="" class="a-primary text-morado">Inicio</a>
         <a href="" class="a-primary ">Inicio</a>
         <a href="" class="a-primary ">Inicio</a>
@@ -140,9 +135,9 @@
                     }
                   ?>
                 </select>
-                <div class="mt-3">
-                  <label for="username" class="block text-base mb-2">Cantidad </label>
-                  <input type="text" id="cantidad" name="cantidad" class="  input-prymary w-full" placeholder="Cantidad..." />
+                <div class="px-2 mt-3">
+                  <label for="username" class="block font-bold">Cantidad </label>
+                  <input type="number" id="cantidad" name="cantidad" class="m-2  input-prymary w-full" placeholder="Cantidad..." />
               </div>
               </div>
               
@@ -171,11 +166,8 @@
         </h2>
       </section>
       <div class="ml-12">
-        <img
-          src="../../../img/icons/bienescompartidosBL.svg"
-          alt="BienesCompartidos"
-          width="135px"
-        />
+      <img class="" src="../../../src/img/icons/bienescompartidosBL.svg" alt="" width="127.78px" height="33px">
+
       </div>
     </footer>
   </body>

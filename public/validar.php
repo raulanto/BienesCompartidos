@@ -22,10 +22,10 @@ session_start();
             exit;
         } 
         if($user = mysqli_fetch_assoc($consulta)) {
-            require_once('vista/registroasesor/Asesor.php');
+            require_once('vista/registroasesor/Clases.php');
             $iduser=$user['ID_datosusuario'];
             $_SESSION['Asesor'] = new Asesor($iduser);
-            $_SESSION['logueado'] = true;
+            $_SESSION['logueado'] = TRUE;
             header("Location: vista/panelAsesor.php?idasesor=".$iduser);
             exit;
         }else {

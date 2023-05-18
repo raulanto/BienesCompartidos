@@ -3,5 +3,5 @@
     $_SESSION['logueado'] = false;
     session_unset();
     session_destroy();
-    header('Location: vista/index.php');
+    header('Location: index.php');
 ?>
