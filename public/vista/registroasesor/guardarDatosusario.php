@@ -33,7 +33,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Ejecutar la consulta
     require_once('Clases.php');
     session_start();
-    $_SESSION['DatosUsuario'] = new DatosUsuario($id,$usuario, $password, $token);
+    $asesor=$_SESSION['Asesor'];
+    $_SESSION['DatosUsuario'] = new DatosUsuario($id,$usuario, $password, $token,$asesor->id);
     header("Location: registro-3.php");
 
 

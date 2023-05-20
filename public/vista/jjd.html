@@ -1,0 +1,79 @@
+<script defer src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" />
+<link href="../../dist/output.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+          integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+<!-- page -->
+<main class="min-h-screen w-full bg-cover backdrop-blur-md bg-white/30 bg-origin-content text-gray-700 " x-data="layout" style="background-image:url('../../src/img/gradient.jpg') ;" >
+    <!-- header page -->
+    <header class="flex w-full items-center justify-between  border-gray-200 bg-white p-2 z-10">
+        <!-- logo -->
+          <div class="flex">
+              <img
+                class=""
+                src="../../src/img/icons/bienescompartidosCL.svg"
+                alt=""
+                width="127.78px"
+                height="33px"
+              />
+              <a href="" class="a-primary ">Inicio</a>
+              <a href="" class="a-primary ">Conocenos</a>
+
+            </div>
+        <!-- button profile -->
+        <div>
+            <button type="button" @click="profileOpen = !profileOpen" @click.outside="profileOpen = false"
+                class="h-9 w-9 overflow-hidden rounded-full">
+                <img src="../../src/img/User-Icon-Grey-1264218711 (1).jpg" alt="plchldr.co" />
+            </button>
+
+            <!-- dropdown profile -->
+            <div class="absolute right-2 mt-1 w-48 divide-y divide-gray-200 rounded-md border border-gray-200 bg-white shadow-md"
+                x-show="profileOpen" x-transition>
+                <div class="flex items-center space-x-2 p-2">
+                    <img src="../../src/img/User-Icon-Grey-1264218711 (1).jpg" alt="plchldr.co" class="h-9 w-9 rounded-full" />
+                    <div class="font-medium">asesor</div>
+                </div>
+
+                <div class="flex flex-col space-y-3 p-2">
+                    <a href="#" class="transition hover:text-purple-600">Perfil</a>
+                    <a href="#" class="transition hover:text-purple-600">Subir casa</a>
+                    <a href="#" class="transition hover:text-purple-600">Mostrar catalogo</a>
+                </div>
+
+                <div class="p-2">
+                    <a class="flex items-center space-x-2 transition hover:text-purple-600">
+                        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1">
+                            </path>
+                        </svg>
+                        <div>Salir</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="  p-6">
+        <div class="bg-white rounded-xl  p-4">
+            <h2 class="text-3xl font-extrabold">
+                Lorem ipsum dolor
+            </h2>
+            <hr class="border-gray-800">
+
+        </div>
+ 
+    </div>
+    
+</main>
+
+<script>
+    document.addEventListener("alpine:init", () => {
+        Alpine.data("layout", () => ({
+            profileOpen: false,
+            asideOpen: true,
+        }));
+    });
+</script>

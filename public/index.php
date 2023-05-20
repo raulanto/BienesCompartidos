@@ -46,7 +46,7 @@
 
     <section class=" flex flex-auto justify-center items-center bg-current bg-white bg-bottom bg-no-repeat  "
              style="background-image:url(../../img/wave.svg) ;">
-        <form action="../validar.php" method="post" class="flex  h-fit w-80 select-none">
+        <form action="validar.php" method="post" class="flex  h-fit w-80 select-none">
             <div class="w-96 p-6 shadow-lg bg-stone-50 rounded-md   ">
                 <div class="flex justify-center items-center ">
                     <div class=" h-14 w-14 p-3 text-center   shadow-lg text-3xl text-white rounded-full bg-purple-700 ">

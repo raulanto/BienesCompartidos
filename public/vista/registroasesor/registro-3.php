@@ -1,6 +1,8 @@
+<!--Registro de la inmobiliaria-->
+
+
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +10,7 @@
     <!-- hoja de estilos  -->
     <link href="../../../dist/output.css" rel="stylesheet">
 
-    <title>Registro usuario</title>
+    <title>Registro</title>
     <style>
         html,
         body {
@@ -35,13 +37,13 @@
     <div class="flex-grow">
         <!-- Contenido principal de la página -->
         <main class="flex  text-left items-center justify-center  p-2 my-5">
-            <section class=" p-2 shadow-lg bg-white rounded-md px-6 w-fit ">
-                <h4 class="text-3xl block text-center font-bold text-gray-900 m-3">Datos de la Inmobiliaria</h4>
-                <form id="myForm" action="guardarInmobiliaria.php" method="post"
-                      class=" flex flex-col justify-center items-center" onsubmit="return validarFormulario()">
+            <section class=" p-2 shadow-lg bg-white rounded-md px-6 ">
+                <h4 class="text-3xl block text-center font-bold  m-3">Datos de la Inmobiliaria</h4>
+                <form id="myForm" action="guardarInmobiliaria.php" method="post" enctype="multipart/form-data"
+                      class=" flex flex-col justify-center items-center " onsubmit="return validarFormulario()">
                     <div class="flex flex-grow mx-3 px-2">
                         <div class="flex flex-col  ">
-                            <div class="flex-initial w-64 mx-2 ">
+                            <div class="flex-initial w-72 mx-2 ">
 
                                 <div class="mt-3 px-2">
                                     <label for="nombre" class="block text-base mb-2">Nombre Empresa</label>
@@ -78,7 +80,7 @@
 
                         <div class="flex flex-grow mx-3 px-2">
                             <div class="flex flex-col  ">
-                                <div class="flex-initial w-64 mx-2 ">
+                                <div class="flex-initial w-80 mx-2 ">
 
                                     <div class="mt-3 px-2">
                                         <label for="ubicacion" class="block text-base mb-2">Ubicacion de la
@@ -97,8 +99,8 @@
                                     </div>
                                     <div class="mt-3 px-2">
                                         <label for="dropzone-file"
-                                            class="mx-auto cursor-pointer flex w-full max-w-lg flex-col items-center rounded-md border-2 border-dashed border-gray-400 hover:border-purple-400 bg-white p-2 text-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-purple-500"
+                                            class="mx-auto cursor-pointer flex w-full max-w-lg flex-col items-center p-1 rounded-md border-2 border-dashed border-gray-400 hover:border-purple-400 bg-white  text-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-10 text-purple-500"
                                                 fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                                 <path stroke-linecap="round" stroke-linejoin="round"
                                                     d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
@@ -108,9 +110,10 @@
                                              font-medium text-gray-700 tracking-wide">Logo
                                                 File</h2>
 
-                                            <p class="mt-2 text-gray-500 tracking-wide text-base"> Subir imagen png o
+                                            <p class="mt-0.5 text-gray-500 tracking-wide text-base"> Subir imagen png o
                                                 jpg</p>
-                                            <input id="dropzone-file" name="dropzone-file" type="file" class="hidden" />
+                                            <input id="dropzone-file" name="dropzone-file" type="file" class="hidden"  />
+
                                     </div>
                                 </div>
                             </div>
@@ -140,6 +143,7 @@
             <img class="" src="../../../src/img/icons/bienescompartidosBL.svg" alt="" width="127.78px" height="33px" />
         </div>
     </footer>
+
 </body>
 
 </html>

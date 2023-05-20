@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     require_once('Clases.php');
     session_start();
-    $_SESSION['Asesor'] = new Asesor($id,$nombre, $apellidoP, $apellidoM, $telefono, $correo, 0, 0, $curp);
+    $_SESSION['Asesor'] = new Asesor($id,$nombre, $apellidoP, $apellidoM, $telefono, $correo, $curp);
     header("Location: registro-2.php");
 
 

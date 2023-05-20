@@ -1,4 +1,8 @@
 <?php
+
+
+
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obtener los datos enviados por el formulario
     $nombreEmpresa = $_POST['nombre'];
@@ -7,17 +11,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $correoEmpresa = $_POST['Correo-de-la-empresa'];
     $ubicacionEmpresa = $_POST['ubicacion'];
     $descripcionEmpresa = $_POST['descripcion'];
-    $logo = $_POST['dropzone-file'];
+    $logo = $_FILES['dropzone-file']['tmp_name'];
+
     // archivo1.php
     require_once('../../Controlador/conector.php');
     $query = "SELECT inmobiliarias.ID_inmobiliarias FROM inmobiliarias ORDER BY inmobiliarias.ID_inmobiliarias DESC";
+
+
 
     $consulta = mysqli_query($conexion, $query);
     $user = mysqli_fetch_assoc($consulta);
     $id = $user['ID_inmobiliarias'] + 1;
     require_once('Clases.php');
     session_start();
-    $_SESSION['Inmobiliaria'] = new Inmobiliaria($id, $nombreEmpresa, $ubicacionEmpresa, $descripcionEmpresa, $telefonoEmpresa, $logo, $rpc, $correoEmpresa);
+    $asesor=$_SESSION['Asesor'];
+    $_SESSION['Inmobiliaria'] = new Inmobiliaria($id, $nombreEmpresa, $ubicacionEmpresa, $descripcionEmpresa, $telefonoEmpresa, $logo, $rpc, $correoEmpresa,$asesor->id);
+    $nombreimagen=$nombreEmpresa;
+    $ruta_indexphp = dirname(realpath(__FILE__));
+    echo $ruta_indexphp;
+    $ruta_fichero_origen =$logo;
+    $ruta_nuevo_destino = $ruta_indexphp . '/imagenesEmpresa/' . $nombreimagen . '.jpg';
+
+    if (copy($ruta_fichero_origen, $ruta_nuevo_destino)) {
+        echo 'Archivo copiado con éxito.';
+    } else {
+        echo 'Error al copiar el archivo.';
+    }
+    $logo=$ruta_nuevo_destino;
+    $_SESSION['Inmobiliaria'] = new Inmobiliaria($id, $nombreEmpresa, $ubicacionEmpresa, $descripcionEmpresa, $telefonoEmpresa, $logo, $rpc, $correoEmpresa,$asesor->id);
+
     header("Location: cuentaRegistrada.php");
 
 
