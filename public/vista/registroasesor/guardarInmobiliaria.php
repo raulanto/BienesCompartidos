@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $query = "SELECT inmobiliarias.ID_inmobiliarias FROM inmobiliarias ORDER BY inmobiliarias.ID_inmobiliarias DESC";
 
 
-
+    $rutatrabajo='registroasesor/imagenesEmpresa/';
 
     require_once('Clases.php');
     session_start();
@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         echo 'Error al copiar el archivo.';
     }
-    $logo=$ruta_nuevo_destino;
+    $logo=$rutatrabajo.$nombreimagen.'.jpg';
     $_SESSION['Inmobiliaria'] = new Inmobiliaria( $nombreEmpresa, $ubicacionEmpresa, $descripcionEmpresa, $telefonoEmpresa, $logo, $rpc, $correoEmpresa,$asesor->id);
 
     header("Location: cuentaRegistrada.php");

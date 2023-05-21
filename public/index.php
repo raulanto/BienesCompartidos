@@ -22,16 +22,20 @@
 <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 <!-- Encabezado de la pagina -->
 <nav class="flex flex-row p-1 max-w-screen justify-between items-center ">
-    <div class="flex ml-12 ">
-        <img class="" src="../src/img/icons/bienescompartidosCL.svg" alt="" width="127.78px" height="33px"/>
-        <a href="" class="a-primary ">Inicio</a>
-        <a href="" class="a-primary ">Inicio</a>
-        <a href="" class="a-primary ">Inicio</a>
-        <a href="" class="a-primary ">Inicio</a>
-    </div>
+<div class="flex ml-12 ">
+            <img class="" src="img/logo.png" alt="" width="127.78px" height="33px">
+            <a href="" class="a-primary ">Inicio</a>
+            <a href="" class="a-primary ">Concenos</a>
+        </div>
+        <div class="flex">
+            <a href=""
+                class="mx-3  button-prymary">Iniciar</a>
+            <a href="../"
+                class="mx-3 button-tercery">Registrarse</a>
+        </div>
 </nav>
 
-<main class="flex flex-grow bg-cover" style="background-image:url(../src/img/fondo.png) ;">
+<main class="flex flex-grow bg-cover " style="background-image:url(../src/img/fondoVH.jpg) ;">
 
     <!-- login de Bienes Compartidos para hacesor -->
     <article id="devblog" class=" bg-cover bg-center rounded-r-lg   flex flex-initial w-4/6 "

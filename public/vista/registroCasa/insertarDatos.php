@@ -9,6 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $ruta3 = $_FILES['imagen3']['tmp_name'];
     $ruta4 = $_FILES['imagen4']['tmp_name'];
     $ruta5 = $_FILES['imagen5']['tmp_name'];
+    $rutatrabajo='registroCasa/imagenescasa/';
 
     $inmueble = $_SESSION['Inmueble'];
     $Ubicacion = $_SESSION['Ubicacion'];
@@ -48,13 +49,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 } else {
                     echo 'Error al copiar el archivo1.';
                 }
-                $image1 = new Galeria($ruta_nuevo_destino, $id);
+                $logo=$rutatrabajo.$nombreimagen.'.jpg';
+                $image1 = new Galeria($logo, $id);
                 if ($image1->insertaImg($conexion) === TRUE) {
                     echo 'correcto';
                 } else {
                     echo "Error al insertar datos: 4" . $conexion->error;
                 }
-//                imagen
+//                imagen 2
                 $nombreCasa = $inmueble->nombre . '2';
                 $nombreimagen = $nombreCasa;
                 $ruta_fichero_origen = $ruta2;
@@ -65,7 +67,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 } else {
                     echo 'Error al copiar el archivo2.';
                 }
-                $image2 = new Galeria($ruta_nuevo_destino, $id);
+                $logo=$rutatrabajo.$nombreimagen.'.jpg';
+                $image2 = new Galeria($logo, $id);
                 if ($image2->insertaImg($conexion) === TRUE) {
                     echo 'correcto';
                 } else {
@@ -83,7 +86,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 } else {
                     echo 'Error al copiar el archivo3.';
                 }
-                $image3 = new Galeria($ruta_nuevo_destino, $id);
+                $logo=$rutatrabajo.$nombreimagen.'.jpg';
+                $image3 = new Galeria($logo, $id);
                 if ($image3->insertaImg($conexion) === TRUE) {
                     echo 'correcto';
                 } else {
@@ -102,7 +106,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 } else {
                     echo 'Error al copiar el archivo4.';
                 }
-                $image4 = new Galeria($ruta_nuevo_destino, $id);
+                $logo=$rutatrabajo.$nombreimagen.'.jpg';
+                $image4 = new Galeria($logo, $id);
                 if ($image4->insertaImg($conexion) === TRUE) {
                     echo 'correcto';
                 } else {
@@ -121,9 +126,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 } else {
                     echo 'Error al copiar el archivo1.';
                 }
-                $image5 = new Galeria($ruta_nuevo_destino, $id);
+                $logo=$rutatrabajo.$nombreimagen.'.jpg';
+                $image5 = new Galeria($logo, $id);
                 if ($image5->insertaImg($conexion) === TRUE) {
                     echo 'correcto';
+                    header("Location: ../panelAsesor.php?idasesor=".$Asesor->id);
                 } else {
                     echo "Error al insertar datos: 4" . $conexion->error;
                 }

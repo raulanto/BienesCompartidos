@@ -25,19 +25,36 @@
 </head>
 
 <body class="flex flex-col min-h-screen">
-  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 
   <?php
   if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     // La solicitud se realizó mediante el método GET
     // Aquí puedes procesar los parámetros recibidos y realizar las validaciones necesarias
-   echo $idasesor = $_GET['idasesor'];
+    $idasesor = $_GET['idasesor'];
     $_SESSION['idasesor']=$idasesor;
     require_once ('../Controlador/conector.php');
-    $query="";
+    $query="SELECT
+	inmobiliarias.nombreEmpresa, 
+	inmobiliarias.ubicacion, 
+	inmobiliarias.descripcion, 
+	inmobiliarias.telefono, 
+	inmobiliarias.logo, 
+	inmobiliarias.RPC, 
+	inmobiliarias.correo, 
+	CONCAT(asesor.nombre,' ',asesor.ape_paterno, ' ',asesor.ape_materno ) as nombre,
+	asesor.telefono AS telefonoempresa, 
+	asesor.correo as correoEmpresa,
+  asesor.CURP
+FROM
+	asesor
+	INNER JOIN
+	inmobiliarias
+	ON 
+		asesor.ID_asesor = inmobiliarias.fk_asesor
+	WHERE ID_asesor='$idasesor'";
     $resultados= mysqli_query($conexion, $query);
 
-
+    $columna=mysqli_fetch_assoc($resultados);
     // Validar y procesar los parámetros recibidos
     // ...
 
@@ -53,60 +70,72 @@
 
 <!-- Encabezado de la pagina -->
 <nav class="flex flex-row p-1 max-w-screen justify-between items-center ">
-      <div class="flex ml-12 ">
-        <img
-          class=""
-          src="../../src/img/icons/bienescompartidosCL.svg"
-          alt=""
-          width="127.78px"
-          height="33px"
-        />
-        <a href="" class="a-primary ">Inicio</a>
-        <a href="" class="a-primary ">Inicio</a>
-        <a href="" class="a-primary ">Inicio</a>
-        <a href="" class="a-primary ">Inicio</a>
-      </div>
-</nav>
+<script defer src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" />
+<link href="../../dist/output.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+          integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+<!-- page -->
+<main class="min-h-screen w-full bg-cover backdrop-blur-md bg-white/30 bg-origin-content text-gray-700 " x-data="layout" style="background-image:url('../../src/img/gradient.jpg') ;" >
+    <!-- header page -->
+    <header class="flex w-full items-center justify-between  border-gray-200 bg-white p-2 z-10">
+        <!-- logo -->
+          <div class="flex">
+              <img
+                class=""
+                src="../../src/img/icons/bienescompartidosCL.svg"
+                alt=""
+                width="127.78px"
+                height="33px"
+              />
+              <a href="" class="a-primary ">Inicio</a>
+              <a href="" class="a-primary ">Conocenos</a>
 
-  <main class="flex-grow">
-    <div class="md:flex flex-col md:flex-row  w-full">
-      <div @click.away="open = false"
-        class="flex flex-col w-full md:w-64 text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800 flex-shrink-0"
-        x-data="{ open: false }">
-        <div class="flex-shrink-0 px-8 py-4 flex flex-row items-center justify-between">
-          <a href="#"
-            class="text-lg font-semibold  text-gray-900  rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">BienesCompartidos</a>
-          <button class="rounded-lg md:hidden  focus:outline-none focus:shadow-outline" @click="open = !open">
-            <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
-              <path x-show="!open" fill-rule="evenodd"
-                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
-                clip-rule="evenodd"></path>
-              <path x-show="open" fill-rule="evenodd"
-                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                clip-rule="evenodd"></path>
-            </svg>
-          </button>
+            </div>
+        <!-- button profile -->
+        <div>
+            <button type="button" @click="profileOpen = !profileOpen" @click.outside="profileOpen = false"
+                class="h-9 w-9 overflow-hidden rounded-full">
+                <img src="../../src/img/User-Icon-Grey-1264218711 (1).jpg" alt="plchldr.co" />
+            </button>
+
+            <!-- dropdown profile -->
+            <div class="absolute right-2 mt-1 w-48 divide-y divide-gray-200 rounded-md border border-gray-200 bg-white shadow-md"
+                x-show="profileOpen" x-transition>
+                <div class="flex items-center space-x-2 p-2">
+                    <img src="../../src/img/User-Icon-Grey-1264218711 (1).jpg" alt="plchldr.co" class="h-9 w-9 rounded-full" />
+                    <div class="font-medium">asesor</div>
+                </div>
+
+                <div class="flex flex-col space-y-3 p-2">
+                    <a href="panelAsesor.php?idasesor=<?php echo $idasesor?>" class="transition hover:text-purple-600">Perfil</a>
+                    <a href="registroCasa/registroCasa.php" class="transition hover:text-purple-600">Subir casa</a>
+                    <a href="" class="transition hover:text-purple-600">Mostrar catalogo</a>
+                </div>
+
+                <div class="p-2">
+                    <a href="../close.php" class="flex items-center space-x-2 transition hover:text-purple-600">
+                        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1">
+                            </path>
+                        </svg>
+                        <div>Salir</div>
+                    </a>
+                </div>
+            </div>
         </div>
-        <nav :class="{'block': open, 'hidden': !open}" class="flex-grow md:block px-4 pb-4 md:pb-0 md:overflow-y-auto">
-          <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-purple-200 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-purple-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-            href="#">informacion</a>
-          <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-purple-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-            href="#">Mostrar casas</a>
-          <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-purple-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-            href="registroCasa/registroCasa.php">Subir casa</a>
-          <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-red-100 rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-red-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-            href="../close.php">salir</a>
-
-        </nav>
-      </div>
-      <div class="flex flex-col w-full  bg-gray-200">
-        <?php
-                $columna = mysqli_fetch_array($resultados);
-              
-              ?>
-        <section class=" w-full container mx-auto h-screen">
-          <h2 class="text-4xl font-extrabold mt-6 mx-4">Datos usuario</h2>
-          <article class="mx-4 mt-6 bg-white rounded-md shadow-md">
+    </header>
+    <div class="  p-6">
+        <div class="bg-white rounded-xl  p-4">
+            <h2 class="text-3xl font-extrabold">
+               Datos del asesor
+            </h2>
+            <hr class="border-gray-800">
+        </div>
+        <article class=" bg-white rounded-md shadow-md">
             <div class="flex mt-4">
               <div class="mx-2">
                 <h3 class="text-md font-bold">Nombre</h3>
@@ -137,9 +166,16 @@
 
             </div>
           </article>
-       
-          <h2 class="text-4xl font-extrabold mt-6 mx-4">Datos inmobiliaria</h2>
-          <article class="mx-4 mt-6 bg-white rounded-md shadow-md">
+          <div class="bg-white rounded-xl p-4 mt-4">
+            <h2 class="text-3xl font-extrabold">
+              Datos de la inmobiliaria
+            </h2>
+            <hr class="border-gray-800">
+        </div>
+        <article class="mt-2 bg-white rounded-md shadow-md">
+            <div class="flex items-center justify-center ">
+                <img src=" <?php  echo $columna['logo']      ?>" width="150px" height="150px">
+            </div>
             <div class="flex mt-4">
               <div class="mx-2">
                 <h3 class="text-md font-bold">Nombre de la empresa</h3>
@@ -147,14 +183,15 @@
                   <?php  echo $columna['nombreEmpresa']      ?>
                 </p>
               </div>
-              <div class="mx-2">
+              
+
+            </div>
+            <div class="mx-2">
                 <h3 class="text-md font-bold">ubicacion</h3>
                 <p>
                   <?php  echo $columna['ubicacion']      ?>
                 </p>
               </div>
-
-            </div>
             <div class="mx-2">
               <h3 class="text-md font-bold">Descripcion</h3>
               <p>
@@ -169,23 +206,32 @@
                 </p>
               </div>
               <div class="mx-2">
+                <h3 class="text-md font-bold">Correo</h3>
+                <p>
+                  <?php  echo $columna['correoEmpresa']      ?>
+                </p>
+              </div>
+            </div>
+            <div class="mx-2">
                 <h3 class="text-md font-bold">RPC</h3>
                 <p>
                   <?php  echo $columna['RPC']      ?>
                 </p>
               </div>
-
-              <?php
-                echo "<img src='" . $columna['logo'] . "' alt=''>";
-              ?>
-
-
-            </div>
           </article>
-        </section>
-      </div>
+ 
     </div>
-  </main>
+    
+</main>
+
+<script>
+    document.addEventListener("alpine:init", () => {
+        Alpine.data("layout", () => ({
+            profileOpen: false,
+            asideOpen: true,
+        }));
+    });
+</script>
 </body>
 
 </html>

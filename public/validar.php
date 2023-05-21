@@ -22,7 +22,7 @@ session_start();
             exit;
         } 
         if($user = mysqli_fetch_assoc($consulta)) {
-            require_once('public/vista/registroasesor/Clases.php');
+            require_once('vista/registroasesor/Clases.php');
             $iduser=$user['fk_asesor'];
             $_SESSION['Asesor'] = new Asesor($iduser);
             $_SESSION['logueado'] = TRUE;
