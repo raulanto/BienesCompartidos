@@ -9,7 +9,7 @@ $asesor = $_SESSION['Asesor'];
 $usuario = $_SESSION['DatosUsuario'];
 $Inmobiliaria = $_SESSION['Inmobiliaria'];
 
-
+print_r($usuario);
 
 if ($asesor->insertarDatosAsesor($conexion) === TRUE) {
     if ($usuario->insertarDatosUsuario($conexion) === TRUE) {

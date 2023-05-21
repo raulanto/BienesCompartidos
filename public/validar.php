@@ -7,12 +7,12 @@ session_start();
 
         require_once ('Controlador/conector.php');
         $query="SELECT
-                datosusuario.ID_datosusuario 
+                datosusuario.fk_asesor 
             FROM
                 datosusuario 
             WHERE
                 datosusuario.username = '$nombre' 
-                AND datosusuario.PASSWORD = aes_encrypt( 'root', '$password' )";
+                AND datosusuario.PASSWORD = '$password'";
         $consulta = mysqli_query($conexion,$query);
 
         if(!$consulta){ 
@@ -22,12 +22,11 @@ session_start();
             exit;
         } 
         if($user = mysqli_fetch_assoc($consulta)) {
-            require_once('vista/registroasesor/Clases.php');
-            $iduser=$user['ID_datosusuario'];
+            require_once('public/vista/registroasesor/Clases.php');
+            $iduser=$user['fk_asesor'];
             $_SESSION['Asesor'] = new Asesor($iduser);
             $_SESSION['logueado'] = TRUE;
             header("Location: vista/panelAsesor.php?idasesor=".$iduser);
-            exit;
         }else {
             header("Location: incorrecto.php");
         }

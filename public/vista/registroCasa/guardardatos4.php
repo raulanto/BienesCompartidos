@@ -8,16 +8,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $tipoInmueble=$_POST['tipoInmueble'];
     $cantidad=$_POST['cantidad'];
     $tipoOperacion=$_POST['tipoOperacion'];
-    require_once('../../Controlador/conector.php');
 
-    $query = "SELECT inmueble.ID_inmueble FROM inmueble ORDER BY inmueble.ID_inmueble DESC";
-    $consulta = mysqli_query($conexion, $query);
-    $user = mysqli_fetch_assoc($consulta);
-    $id = $user['ID_inmueble'] + 1;
     // archivo1.php
     require_once ('clases.php');
     session_start();
-    $_SESSION['Inmueble'] =new Inmueble($id, '', '', '', 0, $tipoOperacion, $tipoInmueble, $cantidad);
+    $_SESSION['Inmueble'] =new Inmueble(0, '', '', '', 0, $tipoOperacion, $tipoInmueble, $cantidad);
 
     header("Location: registroUbicacion.php");
     exit;
@@ -28,6 +23,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Puedes mostrar un mensaje de error o redirigir a otra página
     echo "Error: La solicitud debe realizarse mediante el método GET.";
 }
+
+
+
+
+
+
+
 
 
 

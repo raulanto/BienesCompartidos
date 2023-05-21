@@ -25,16 +25,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     $token = generartokenAleatorio();
-    require_once('../../Controlador/conector.php');
-    $query = "SELECT datosusuario.ID_datosusuario FROM datosusuario ORDER BY datosusuario.ID_datosusuario DESC";
-    $consulta = mysqli_query($conexion, $query);
-    $user = mysqli_fetch_assoc($consulta);
-    $id = $user['ID_datosusuario'] + 1;
+
     // Ejecutar la consulta
     require_once('Clases.php');
     session_start();
     $asesor=$_SESSION['Asesor'];
-    $_SESSION['DatosUsuario'] = new DatosUsuario($id,$usuario, $password, $token,$asesor->id);
+    $_SESSION['DatosUsuario'] = new DatosUsuario($usuario, $password, $token,$asesor->id);
+
     header("Location: registro-3.php");
 
 

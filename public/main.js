@@ -64,11 +64,5 @@ window.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  function mostrarContrasena() {
-    var inputContrasena = document.getElementById("password");
-    if (inputContrasena.type === "password") {
-      inputContrasena.type = "text";
-    } else {
-      inputContrasena.type = "password";
-    }
-  }
+
+

@@ -8,14 +8,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $direcion=$_POST['direcion'];
     $descripcion=$_POST['descripcion'];
     $colonia=$_POST['colonia'];
+    $codigo_postal=$_POST['codigo_postal'];
 
     // archivo1.php
     require_once ('clases.php');
     session_start();
-    $_SESSION['Ubicacion']  = new Ubicacion($direcion, $colonia, 0,$descripcion);
+    $inmueble=$_SESSION['Inmueble'];
+    $_SESSION['Ubicacion']  = new Ubicacion($direcion,$colonia,$inmueble->id,$descripcion,$codigo_postal);
 
 
-    header("Location: registroCasa4.php");
+    header("Location: registroCaracteristcas.php");
     exit;
 
 

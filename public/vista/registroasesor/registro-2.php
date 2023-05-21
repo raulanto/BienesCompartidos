@@ -73,8 +73,7 @@
                         <div>
                             <input minlength="8" type="password" id="password" name="password" class="w-full input-prymary" placeholder="Contraseña..." required/>
                             <p class="text-slate-500 text-xs">La Contraseña tiene que ser minimo 8 caracteres</p>
-                            <button onclick="mostrarContrasena()"  class="text-slate-500 text-right a-primary text-base w-full">Mostrar Constraseña
-                           </button>
+
                         </div>
 
                     </div>

@@ -20,7 +20,7 @@
   	    require_once ('../../Controlador/conector.php');
       $query="SELECT
       colonias.ID_colonias,
-      CONCAT(colonias.nombre,' ',colonias.CP, ' ',asentamiento.nombre) AS colonia
+      CONCAT(colonias.nombre,' ', ' ',asentamiento.nombre) AS colonia
             FROM
                 asentamiento
                 INNER JOIN
@@ -55,11 +55,14 @@
                 <button disabled
                     class="text-left px-2 py-1 mt-2 rounded font-semibold rounde-md  bg-purple-50/40 text-purple-700/40 border-2 border-purple-700/40 ">Operación
                     y tipo de inmueble</button>
-                <button 
+                <button
                     class="text-left px-2 py-1 mt-2 rounded font-semibold rounde-md  bg-purple-100 text-purple-700 border-2 border-purple-700">Ubicación
                 </button>
                 <button disabled
-                    class="text-left px-2 py-1 mt-2 rounded font-semibold rounde-md  bg-purple-50/40 text-purple-700/40 border-2 border-purple-700/40 mb-6">Características</button>
+                    class="text-left px-2 py-1 mt-2 rounded font-semibold rounde-md  bg-purple-50/40 text-purple-700/40 border-2 border-purple-700/40 ">Características</button>
+                <button
+                    class="text-left px-2 py-1 mt-2 rounded font-semibold rounde-md  bg-purple-50/40 text-purple-700/40 border-2 border-purple-700/40 " disabled>imagenes
+                </button>
             </aside>
 
             <form class=" bg-gray-200 rounded-md px-1 w-10/12 container mx-auto" action="guardardatos2.php" method="post">
@@ -74,19 +77,25 @@
                     <div class="mt-3 px-2">
                         <label for="username" class="block text-base mb-2 font-bold">Direcion</label>
                         <input type="text" id="direcion" name="direcion"
-                            class="  border  text-base px-2 py-1 w-80 focus:outline-none focus:ring-0 focus:border-morado rounded-md"
-                            placeholder="Ingrese calle y numero.." />
+                            class=" w-full input-prymary"
+                            placeholder="Ingrese calle y numero.." required/>
+                    </div>
+                    <div class="mt-3 px-2">
+                        <label for="username" class="block text-base mb-2 font-bold">Codigo postal</label>
+                        <input type="text" id="direcion" name="direcion"
+                               class=" input-prymary"
+                               placeholder="codigo postal.." required/>
                     </div>
                     <div class="mt-3 px-2">
                         <label for="username" class="block text-base mb-2 font-bold">Descripcion</label>
                         <input type="text" id="descripcion" name="descripcion"
-                            class="  border  text-base px-2 py-1 w-80 focus:outline-none focus:ring-0 focus:border-morado rounded-md"
-                            placeholder="Descripcion." />
+                            class="  input-prymary"
+                            placeholder="Descripcion." required/>
                     </div>
                             <label for="" class="block font-bold mx-2">Colonia</label>
                             <select data-te-select-init data-te-select-visible-options="3" id="colonia" name="colonia"
                                 class="h-9 py-1 m-2 focus:outline-none focus:ring-0 focus:border-morado rounded-md"
-                                >
+                                required >
                                 <option class="">Selecione una opcion</option>
                             <?php
                                 foreach ($consulta1 as $colonia) {
@@ -106,7 +115,7 @@
                     </button>
 
                     <div>
-                        <button class="button-danger mx-3">Salir</button>
+                        <a href="../panelAsesor.php" class="button-danger mx-3" onclick="history.back()">Salir</a>
                         <button class="button-secundary">Continuar</button>
                     </div>
                 </div>

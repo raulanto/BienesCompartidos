@@ -15,9 +15,11 @@
         }
     </style>
     <title>Login</title>
+
+
 </head>
 <body class="flex flex-col min-h-screen">
-
+<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 <!-- Encabezado de la pagina -->
 <nav class="flex flex-row p-1 max-w-screen justify-between items-center ">
     <div class="flex ml-12 ">
@@ -29,11 +31,11 @@
     </div>
 </nav>
 
-<main class="flex flex-grow">
+<main class="flex flex-grow bg-cover" style="background-image:url(../src/img/fondo.png) ;">
 
     <!-- login de Bienes Compartidos para hacesor -->
     <article id="devblog" class=" bg-cover bg-center rounded-r-lg   flex flex-initial w-4/6 "
-             style="background-image:url(../src/img/fondo.png) ;">
+             >
         <figcaption class="flex items-stretch  px-2 py-5  w-full ">
             <blockquote class=" rounded-lg max-w-full h-fit  p-2 m-2 self-end  bg-stone-50 shadow-2xl w-full">
                 <h2 class="text-2xl font-extrabold  p-2">Bienes Compartidos</h2>
@@ -44,8 +46,8 @@
     </article>
 
 
-    <section class=" flex flex-auto justify-center items-center bg-current bg-white bg-bottom bg-no-repeat  "
-             style="background-image:url(../../img/wave.svg) ;">
+    <section class=" flex flex-auto justify-center items-center   "
+             style="background-image:url('../../img/wave.svg') ;">
         <form action="validar.php" method="post" class="flex  h-fit w-80 select-none">
             <div class="w-96 p-6 shadow-lg bg-stone-50 rounded-md   ">
                 <div class="flex justify-center items-center ">
@@ -65,6 +67,7 @@
                     <input type="password" id="password" name="password" class="input-prymary w-full"
                            placeholder="Contraseña..."/>
                 </div>
+
 
                 <div class="mt-5">
                     <button type="submit" class="button-prymary w-full">Iniciar</button>

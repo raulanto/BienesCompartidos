@@ -19,13 +19,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 
-    $consulta = mysqli_query($conexion, $query);
-    $user = mysqli_fetch_assoc($consulta);
-    $id = $user['ID_inmobiliarias'] + 1;
+
     require_once('Clases.php');
     session_start();
     $asesor=$_SESSION['Asesor'];
-    $_SESSION['Inmobiliaria'] = new Inmobiliaria($id, $nombreEmpresa, $ubicacionEmpresa, $descripcionEmpresa, $telefonoEmpresa, $logo, $rpc, $correoEmpresa,$asesor->id);
+    $_SESSION['Inmobiliaria'] = new Inmobiliaria($nombreEmpresa, $ubicacionEmpresa, $descripcionEmpresa, $telefonoEmpresa, $logo, $rpc, $correoEmpresa,$asesor->id);
     $nombreimagen=$nombreEmpresa;
     $ruta_indexphp = dirname(realpath(__FILE__));
     echo $ruta_indexphp;
@@ -38,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo 'Error al copiar el archivo.';
     }
     $logo=$ruta_nuevo_destino;
-    $_SESSION['Inmobiliaria'] = new Inmobiliaria($id, $nombreEmpresa, $ubicacionEmpresa, $descripcionEmpresa, $telefonoEmpresa, $logo, $rpc, $correoEmpresa,$asesor->id);
+    $_SESSION['Inmobiliaria'] = new Inmobiliaria( $nombreEmpresa, $ubicacionEmpresa, $descripcionEmpresa, $telefonoEmpresa, $logo, $rpc, $correoEmpresa,$asesor->id);
 
     header("Location: cuentaRegistrada.php");
 

@@ -17,14 +17,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // archivo1.php
     require_once ('clases.php');
     session_start();
-    $_SESSION['Caracteristicas']  = new Caracteristicas($superficieTerrestre, $superficieConstru, $no_estacionamiento,$no_baños,$no_recamaras,0, $fk_estadoinmueble);
     $inmueble=$_SESSION['Inmueble'];
+
+    $_SESSION['Caracteristicas']  = new Caracteristicas($superficieTerrestre, $superficieConstru, $no_estacionamiento,$no_baños,$no_recamaras,$inmueble->id, $fk_estadoinmueble);
     $inmueble->nombre=$nombre;
     $inmueble->precio=$precio;
     $inmueble->descripcion=$descripcion;
     $_SESSION['Inmueble']=$inmueble;
 
-    header("Location: insertarDatos.php");
+    header("Location: RegistroImagenes.php");
     exit;
 
 

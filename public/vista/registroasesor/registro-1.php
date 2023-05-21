@@ -41,9 +41,11 @@
         <section class="flex justify-between items-center">
             <!-- titulo -->
             <div class="w-96">
-                <h2 class="text-5xl  font-extrabold m-11 text-right line-clamp-3 text-gray-900 leading-10">
+                <h2 class="text-5xl  font-extrabold mt-11 mr-7 text-right line-clamp-3 text-gray-900 leading-10">
                     Comienza creando tu cuenta.
                 </h2>
+                <hr class="border-gray-900  mt-2">
+
             </div>
 
             <!--

@@ -47,7 +47,7 @@ if (!$_SESSION['logueado'] == true) {
                     <p class="ml-11 mt-4 mb-8">
                         Para poder subir un inmueble tienes que estar registrado como asesor
                     </p>
-                    <a href="registroCasa2.php" class="button-prymary ml-11">Comenzar.</a>
+                    <a href="registroInmueble.php" class="button-prymary ml-11">Comenzar.</a>
                 </div>
 
 

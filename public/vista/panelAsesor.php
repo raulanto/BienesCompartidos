@@ -1,7 +1,7 @@
 <?php     
     session_start();
     if(!$_SESSION['logueado']==TRUE){
-        header("Location: ../login.php");
+        header("Location: ../index.php");
     } 
 
 ?>
@@ -31,28 +31,10 @@
   if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     // La solicitud se realizó mediante el método GET
     // Aquí puedes procesar los parámetros recibidos y realizar las validaciones necesarias
-    $idasesor = $_GET['idasesor'];
+   echo $idasesor = $_GET['idasesor'];
+    $_SESSION['idasesor']=$idasesor;
     require_once ('../Controlador/conector.php');
-    $query="SELECT
-   	CONCAT(asesor.nombre,' ',asesor.ape_paterno, ' ',asesor.ape_materno ) as nombre,
-    asesor.telefono, 
-    asesor.correo, 
-    inmobiliarias.nombreEmpresa, 
-    inmobiliarias.ubicacion, 
-    inmobiliarias.descripcion, 
-    inmobiliarias.telefono AS telefonoempresa, 
-    inmobiliarias.RPC, 
-    inmobiliarias.logo,
-    asesor.ID_asesor,
-    asesor.CURP
-  FROM
-    asesor
-    INNER JOIN
-    inmobiliarias
-    ON 
-      asesor.fk_inmobiliaria = inmobiliarias.ID_inmobiliarias
-  WHERE
-  asesor.ID_asesor = '$idasesor'";
+    $query="";
     $resultados= mysqli_query($conexion, $query);
 
 
