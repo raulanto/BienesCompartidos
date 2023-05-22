@@ -1,11 +1,3 @@
-<?php     
-    session_start();
-    if(!$_SESSION['logueado']==TRUE){
-        header("Location: ../index.php");
-    } 
-
-?>
-
 
 <!DOCTYPE html>
 <html lang="es">
@@ -15,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="../../dist/output.css" rel="stylesheet" />
-  <title>Panel Asesor</title>
+  <title>Bines Compartidos</title>
   <style>
     html,
     body {
@@ -38,7 +30,7 @@
     return $precioFormateado;
 }
 
-  if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // La solicitud se realizó mediante el método GET
     // Aquí puedes procesar los parámetros recibidos y realizar las validaciones necesarias
     $idasesor = $_GET['idasesor'];
@@ -99,61 +91,25 @@ $resultados = mysqli_stmt_get_result($stmt);
 <!-- page -->
 <main class="min-h-screen w-full bg-cover bg-white bg-origin-content text-gray-700 " x-data="layout"  >
     <!-- header page -->
-    <header class="flex w-full items-center justify-between  border-gray-300 bg-white p-2 z-10">
-        <!-- logo -->
-          <div class="flex">
-              <img
-                class=""
-                src="../../src/img/icons/bienescompartidosCL.svg"
-                alt=""
-                width="127.78px"
-                height="33px"
-              />
-              <a href="" class="a-primary ">Inicio</a>
-              <a href="" class="a-primary ">Conocenos</a>
-
-            </div>
-        <!-- button profile -->
-        <div>
-            <button type="button" @click="profileOpen = !profileOpen" @click.outside="profileOpen = false"
-                class="h-9 w-9 overflow-hidden rounded-full">
-                <img src="../../src/img/User-Icon-Grey-1264218711 (1).jpg" alt="plchldr.co" />
-            </button>
-
-            <!-- dropdown profile -->
-            <div class="absolute right-2 mt-1 w-48 divide-y divide-gray-200 rounded-md border border-gray-200 bg-white shadow-md"
-                x-show="profileOpen" x-transition>
-                <div class="flex items-center space-x-2 p-2">
-                    <img src="../../src/img/User-Icon-Grey-1264218711 (1).jpg" alt="plchldr.co" class="h-9 w-9 rounded-full" />
-                    <div class="font-medium">asesor</div>
-                </div>
-
-                <div class="flex flex-col space-y-3 p-2">
-                    <a href="panelAsesor.php?idasesor=<?php echo $idasesor?>" class="transition hover:text-purple-600">Perfil</a>
-                    <a href="../vista/registroCasa/registroCasa.php?idasesor=<?php echo $idasesor?>"  class="transition hover:text-purple-600">Subir casa</a>
-                    <a href="" class="transition hover:text-purple-600">Mostrar catalogo</a>
-                </div>
-
-                <div class="p-2">
-                    <a href="../close.php" class="flex items-center space-x-2 transition hover:text-purple-600">
-                        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1">
-                            </path>
-                        </svg>
-                        <div>Salir</div>
-                    </a>
-                </div>
-            </div>
+    <nav class="flex flex-row p-2 max-w-screen justify-between items-center sticky top-0 bg-white z-10">
+        <div class="flex ml-12 ">
+            <img class="" src="src/img/icons/bienescompartidosCL.svg" alt="" width="127.78px" height="33px">
+            <a href="" class="a-primary ">Inicio</a>
+            <a href="#" class="a-primary ">Buscar</a>
         </div>
-    </header>
+        <div class="flex">
+            <a href="public/index.php"
+                class="mx-3  button-prymary">Iniciar</a>
+            <a href="public/vista/registroasesor/registroAsesor.php"
+                class="mx-3 button-tercery">Registrarse</a>
+        </div>
+    </nav>
     <div class=" ">
         <div class=" bg-indigo-50">
             <!-- Header -->
             <header>
-              <h1 class="bg-white py-4 text-center">
-              <a href="/" class="text-xl font-bold text-gray-700 cursor-pointer">Catalago de casas</h1>
+              <h1 class=" py-4 text-center text-4xl font-extrabold bg-gradient-to-r from-violet-500 to-purple-500 bg-clip-text text-transparent">
+                Casas Encontradas
               </h1>
             </header>
             <section class="min-h-screen body-font text-gray-600 ">

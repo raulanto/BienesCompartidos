@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../../../dist/output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <title>Document</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+    </style>
+  </head>
+
+  <body class="flex flex-col min-h-screen">
+    <!-- Encabezado de la pagina -->
+    <nav class="flex flex-row p-1 max-w-screen justify-between items-center ">
+      <div class="flex ml-12 ">
+        <img
+          class=""
+          src="../../img/icons/bienescompartidosCL.svg"
+          alt=""
+          width="127.78px"
+          height="33px"
+        />
+        <a href="" class="a-primary ">Inicio</a>
+        <a href="" class="a-primary ">Inicio</a>
+        <a href="" class="a-primary ">Inicio</a>
+        <a href="" class="a-primary ">Inicio</a>
+      </div>
+    </nav>
+    <div class="flex-grow">
+        <!-- Contenido principal de la página -->
+        <header class="bg-fondo bg-cover h-96 max-w-screen">
+            <section class="flex flex-col justify-center items-stretch ">
+    
+                <div class="backdrop-blur-sm bg-white/25  self-center w-fit p-3 m-12 rounded-md">
+                    <h1 class="text-4xl font-black m-5 text-center">Encuentra el hogar de tus sueños</h1>
+                    <div class="flex bg-white p-3 m-2 rounded-md items-center">
+                        <input type="text" id="Ubicacion"
+                            class=" m-2 border w-full text-base px-2 h-9 focus:border-morado focus:outline-none focus:ring-0  rounded-md"
+                            placeholder="Ubicacion" />
+                        <input type="number" id="username"
+                            class=" m-2 border w-full text-base px-2 h-9 focus:outline-none focus:ring-0 focus:border-morado rounded-md"
+                            placeholder="Ubicacion" max="10" min="1" />
+                        <select data-te-select-init data-te-select-visible-options="3" id="username"
+                            class="h-9 py-1 m-2 focus:outline-none focus:ring-0 focus:border-morado rounded-md"
+                            placeholder="Ubicacion" >
+                            <option class="p-2">Selecione una opcion</option>
+                            <option class="p-2">Yes</option>
+                            <option>No</option>
+                            <option>Maybe</option>
+                        </select>
+                        <a href=""
+                            class="w-fit button-prymary">Buscar</a>
+                    </div>
+                </div>
+            </section>
+        </header>
+    </div>
+
+    <footer class="bg-gray-300"><!-- Contenido del footer --></footer>
+  </body>
+</html>

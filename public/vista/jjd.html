@@ -1,75 +1,3 @@
-<?php     
-    session_start();
-    if(!$_SESSION['logueado']==TRUE){
-        header("Location: ../index.php");
-    } 
-
-?>
-
-
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="../../dist/output.css" rel="stylesheet" />
-  <title>Panel Asesor</title>
-  <style>
-    html,
-    body {
-      height: 100%;
-    }
-  </style>
-</head>
-
-<body class="flex flex-col min-h-screen">
-
-  <?php
-  if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    // La solicitud se realizó mediante el método GET
-    // Aquí puedes procesar los parámetros recibidos y realizar las validaciones necesarias
-    $idasesor = $_GET['idasesor'];
-    $_SESSION['idasesor']=$idasesor;
-    require_once ('../Controlador/conector.php');
-    $query="SELECT
-	inmobiliarias.nombreEmpresa, 
-	inmobiliarias.ubicacion, 
-	inmobiliarias.descripcion, 
-	inmobiliarias.telefono, 
-	inmobiliarias.logo, 
-	inmobiliarias.RPC, 
-	inmobiliarias.correo, 
-	CONCAT(asesor.nombre,' ',asesor.ape_paterno, ' ',asesor.ape_materno ) as nombre,
-	asesor.telefono AS telefonoempresa, 
-	asesor.correo as correoEmpresa,
-  asesor.CURP
-FROM
-	asesor
-	INNER JOIN
-	inmobiliarias
-	ON 
-		asesor.ID_asesor = inmobiliarias.fk_asesor
-	WHERE ID_asesor='$idasesor'";
-    $resultados= mysqli_query($conexion, $query);
-
-    $columna=mysqli_fetch_assoc($resultados);
-    // Validar y procesar los parámetros recibidos
-    // ...
-
-    // Continuar con tu lógica de negocio
-    // ...
-} else {
-    // La solicitud no se realizó mediante el método GET
-    // Puedes mostrar un mensaje de error o redirigir a otra página
-    echo "Error: La solicitud debe realizarse mediante el método GET.";
-}
-
-?>
-
-<!-- Encabezado de la pagina -->
-<nav class="flex flex-row p-1 max-w-screen justify-between items-center ">
 <script defer src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" />
 <link href="../../dist/output.css" rel="stylesheet" />
@@ -109,13 +37,13 @@ FROM
                 </div>
 
                 <div class="flex flex-col space-y-3 p-2">
-                    <a href="panelAsesor.php?idasesor=<?php echo $idasesor?>" class="transition hover:text-purple-600">Perfil</a>
-                    <a href="../vista/registroCasa/registroCasa.php?idasesor=<?php echo $idasesor?>" class="transition hover:text-purple-600">Subir casa</a>
-                    <a href="mostrarCasas.php?idasesor=<?php echo $idasesor?>" class="transition hover:text-purple-600">Mostrar catalogo</a>
+                    <a href="#" class="transition hover:text-purple-600">Perfil</a>
+                    <a href="#" class="transition hover:text-purple-600">Subir casa</a>
+                    <a href="#" class="transition hover:text-purple-600">Mostrar catalogo</a>
                 </div>
 
                 <div class="p-2">
-                    <a href="../close.php" class="flex items-center space-x-2 transition hover:text-purple-600">
+                    <a class="flex items-center space-x-2 transition hover:text-purple-600">
                         <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -128,7 +56,7 @@ FROM
             </div>
         </div>
     </header>
-    <div class="  p-6">
+    <div class=" h-screen p-6">
         <div class="bg-white rounded-xl  p-4">
             <h2 class="text-3xl font-extrabold">
                Datos del asesor
@@ -166,15 +94,15 @@ FROM
 
             </div>
           </article>
-          <div class="bg-white rounded-xl p-4 mt-4">
+          <div class="bg-white rounded-xl mt-4 p-4">
             <h2 class="text-3xl font-extrabold">
               Datos de la inmobiliaria
             </h2>
             <hr class="border-gray-800">
         </div>
-        <article class="mt-2 bg-white rounded-md shadow-md">
-            <div class="flex items-center justify-center ">
-                <img src=" <?php  echo $columna['logo']      ?>" width="150px" height="150px">
+        <article class="mx-4 mt-6 bg-white rounded-md shadow-md">
+            <div class="flex items-center justify-center">
+                <img src="../../src/img/fondo.png" width="400px">
             </div>
             <div class="flex mt-4">
               <div class="mx-2">
@@ -206,7 +134,7 @@ FROM
                 </p>
               </div>
               <div class="mx-2">
-                <h3 class="text-md font-bold">Correo</h3>
+                <h3 class="text-md font-bold">Correo/h3>
                 <p>
                   <?php  echo $columna['correoEmpresa']      ?>
                 </p>
@@ -232,6 +160,3 @@ FROM
         }));
     });
 </script>
-</body>
-
-</html>
