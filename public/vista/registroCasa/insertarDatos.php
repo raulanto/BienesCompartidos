@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $nombreimagen = $nombreCasa;
 
                 $ruta_fichero_origen = $ruta1;
-                $ruta_nuevo_destino = $ruta_indexphp . '/imegenescasa/' . $nombreimagen . '.jpg';
+                $ruta_nuevo_destino = $ruta_indexphp . '/imagenescasa/' . $nombreimagen . '.jpg';
                 if (copy($ruta_fichero_origen, $ruta_nuevo_destino)) {
                     echo 'Archivo copiado con éxito1.';
                 } else {
@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $nombreCasa = $inmueble->nombre . '2';
                 $nombreimagen = $nombreCasa;
                 $ruta_fichero_origen = $ruta2;
-                $ruta_nuevo_destino = $ruta_indexphp . '/imegenescasa/' . $nombreimagen . '.jpg';
+                $ruta_nuevo_destino = $ruta_indexphp . '/imagenescasa/' . $nombreimagen . '.jpg';
 
                 if (copy($ruta_fichero_origen, $ruta_nuevo_destino)) {
                     echo 'Archivo copiado con éxito2.';
@@ -79,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $nombreimagen = $nombreCasa;
 
                 $ruta_fichero_origen = $ruta3;
-                $ruta_nuevo_destino = $ruta_indexphp . '/imegenescasa/' . $nombreimagen . '.jpg';
+                $ruta_nuevo_destino = $ruta_indexphp . '/imagenescasa/' . $nombreimagen . '.jpg';
 
                 if (copy($ruta_fichero_origen, $ruta_nuevo_destino)) {
                     echo 'Archivo copiado con éxito3.';
@@ -99,7 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 $ruta_indexphp;
                 $ruta_fichero_origen = $ruta4;
-                $ruta_nuevo_destino = $ruta_indexphp . '/imegenescasa/' . $nombreimagen . '.jpg';
+                $ruta_nuevo_destino = $ruta_indexphp . '/imagenescasa/' . $nombreimagen . '.jpg';
 
                 if (copy($ruta_fichero_origen, $ruta_nuevo_destino)) {
                     echo 'Archivo copiado con éxito4.';
@@ -119,7 +119,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 $ruta_indexphp;
                 $ruta_fichero_origen = $ruta5;
-                $ruta_nuevo_destino = $ruta_indexphp . '/imegenescasa/' . $nombreimagen . '.jpg';
+                $ruta_nuevo_destino = $ruta_indexphp . '/imagenescasa/' . $nombreimagen . '.jpg';
 
                 if (copy($ruta_fichero_origen, $ruta_nuevo_destino)) {
                     echo 'Archivo copiado con éxito1.';

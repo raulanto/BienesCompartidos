@@ -28,17 +28,11 @@
         }
     }
 </script>
-<nav class="flex flex-row p-1 max-w-screen justify-between items-center ">
-    <!-- Contenido de la barra de navegación -->
-    <div class="flex ml-12 ">
-        <img class="" src="../../../src/img/icons/bienescompartidosCL.svg" alt="" width="127.78px" height="33px">
-        <a href="" class="a-primary text-morado">Inicio</a>
-        <a href="" class="a-primary ">Inicio</a>
-        <a href="" class="a-primary ">Inicio</a>
-        <a href="" class="a-primary ">Inicio</a>
-    </div>
+<?php
 
-</nav>
+session_start();
+
+?>
 <main class="flex-grow">
     <!-- Contenido principal de la página -->
     <section class="flex h-fit text-left  p-2 my-5">
@@ -116,14 +110,12 @@
                 </div>
             </article>
 
+            <!-- Botones de confirmacion -->
             <div class="flex justify-between m-3">
-                <button class="button-orange" onclick="history.back()">
-                    Regresar
-                </button>
-
+                <button class="button-orange" onclick="history.back()">Regresar</button>
                 <div>
-                    <a href="../panelAsesor.php" class="button-danger mx-3">Salir</a>
-                    <button class="button-secundary">Continuar</button>
+                    <a href="../panelAsesor.php?idasesor=<?php echo $_SESSION['idasesor']?>" class="button-danger mx-3">Salir</a>
+                    <button class="button-secundary" type="submit">Continuar</button>
                 </div>
             </div>
         </form>

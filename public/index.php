@@ -73,7 +73,7 @@
                 <div class="mt-5">
                     <button type="submit" class="button-prymary w-full">Iniciar</button>
                 </div>
-                <a href="vista/registroasesor/registro-1.php" class="a-primary">Registrarse</a>
+                <a href="vista/registroasesor/registroAsesor.php" class="a-primary">Registrarse</a>
 
             </div>
 

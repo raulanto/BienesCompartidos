@@ -22,18 +22,20 @@
 </head>
 
 <body class="flex flex-col min-h-screen bg-fondoRegistro bg-cover bg-center">
-    <nav class="flex flex-row p-1 max-w-screen justify-between items-center ">
-        <!-- Contenido de la barra de navegación -->
-        <div class="flex ml-12 ">
-            <img class="" src="../../../src/img/icons/bienescompartidosCL.svg" alt="" width="127.78px" height="33px" />
+<nav class="flex flex-row p-2 max-w-screen justify-between items-center sticky top-0  z-10">
+    <div class="flex ml-12 ">
+        <img class="" src="../../../src/img/icons/bienescompartidosCL.svg" alt="" width="127.78px" height="33px">
+        <a href="" class="a-primary ">Inicio</a>
+        <a href="../../../buscar.php" class="a-primary ">Buscar</a>
+    </div>
+    <div class="flex">
+        <a href="../../index.php"
+           class="mx-3  button-prymary">Iniciar</a>
+        <a href="registroAsesor.php"
+           class="mx-3 button-tercery">Registrarse</a>
+    </div>
 
-            <a href="" class="a-primary ">Inicio</a>
-            <a href="" class="a-primary ">Inicio</a>
-            <a href="" class="a-primary ">Inicio</a>
-            <a href="" class="a-primary ">Inicio</a>
-        </div>
-
-    </nav>
+</nav>
     <div class="flex-grow">
         <!-- Contenido principal de la página -->
         <main class="flex  text-left items-center justify-center  p-2 my-5">

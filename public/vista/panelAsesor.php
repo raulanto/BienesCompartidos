@@ -1,12 +1,3 @@
-<?php     
-    session_start();
-    if(!$_SESSION['logueado']==TRUE){
-        header("Location: ../index.php");
-    } 
-
-?>
-
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -28,6 +19,7 @@
 
   <?php
   if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+      session_start();
     // La solicitud se realizó mediante el método GET
     // Aquí puedes procesar los parámetros recibidos y realizar las validaciones necesarias
     $idasesor = $_GET['idasesor'];
@@ -110,7 +102,7 @@ FROM
 
                 <div class="flex flex-col space-y-3 p-2">
                     <a href="panelAsesor.php?idasesor=<?php echo $idasesor?>" class="transition hover:text-purple-600">Perfil</a>
-                    <a href="../vista/registroCasa/registroCasa.php?idasesor=<?php echo $idasesor?>" class="transition hover:text-purple-600">Subir casa</a>
+                    <a href="../vista/registroCasa/registroInmueble.php" class="transition hover:text-purple-600">Subir casa</a>
                     <a href="mostrarCasas.php?idasesor=<?php echo $idasesor?>" class="transition hover:text-purple-600">Mostrar catalogo</a>
                 </div>
 

@@ -1,12 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-<?php
-session_start();
-if (!$_SESSION['logueado'] == true) {
-    header("Location: ../login.php");
-}
 
-?>
 
 <head>
     <meta charset="UTF-8">

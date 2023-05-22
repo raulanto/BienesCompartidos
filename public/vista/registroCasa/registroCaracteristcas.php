@@ -15,8 +15,25 @@
             height: 100%;
         }
     </style>
+    <script>
+        function formatCurrency(input) {
+            const value = parseLocaleNumber(input.value, "es-MX");
+            const format = new Intl.NumberFormat("es-MX").format(value);
+            input.value = format;
+        }
+
+        function parseLocaleNumber(stringNumber, locale) {
+            var thousandSeparator = Intl.NumberFormat(locale).format(11111).replace(/\p{Number}/gu, "");
+            var decimalSeparator = Intl.NumberFormat(locale).format(1.1).replace(/\p{Number}/gu, "");
+
+            return parseFloat(
+                stringNumber.replace(new RegExp("\\" + thousandSeparator, "g"), "").replace(new RegExp("\\" + decimalSeparator), ".")
+            );
+        }
+    </script>
 </head>
 <?php
+session_start();
 require_once ('../../Controlador/conector.php');
 $query="SELECT
       estadoinmuebles.ID_estadoinmuebles, 
@@ -31,17 +48,7 @@ $consulta1 = mysqli_query($conexion,$query);
 
 ?>
 <body class="flex flex-col min-h-screen bg-fondoRegistro bg-cover bg-center bg-scale-75">
-<nav class="flex flex-row p-1 max-w-screen justify-between items-center ">
-    <!-- Contenido de la barra de navegación -->
-    <div class="flex ml-12 ">
-        <img class="" src="../../../src/img/icons/bienescompartidosBL.svg" alt="" width="127.78px" height="33px">
-        <a href="" class="a-primary text-morado">Inicio</a>
-        <a href="" class="a-primary ">Inicio</a>
-        <a href="" class="a-primary ">Inicio</a>
-        <a href="" class="a-primary ">Inicio</a>
-    </div>
 
-</nav>
 <main class="flex-grow">
     <!-- Contenido principal de la página -->
     <section class="flex h-fit text-left  p-2 my-5">
@@ -97,7 +104,7 @@ $consulta1 = mysqli_query($conexion,$query);
                         <input required type="number" id="superficieTerrestre" name="superficieTerrestre" class="w-40 input-prymary" placeholder="0" />
                     </div>
                 </div>
-
+                <p class="text-slate-500 text-xs">La superficie tiene que ser ingresada en metros cuadrados</p>
                 <h2 class="mt-2 font-bold text-xl px-2">Antiguedad</h2>
                 <div class="flex flex-col px-2 mx-2 w-60">
                     <select data-te-select-init data-te-select-visible-options="3" id="colonia"
@@ -116,8 +123,9 @@ $consulta1 = mysqli_query($conexion,$query);
                 <div class="mt-1 px-2 mx-2">
                     <label for="username" class="block text-base mb-2 font-bold text-gray-500">Precio del
                         inmueble</label>
-                    <input type="number" id="precio" name="precio" class="w-40 input-prymary" placeholder="0" required/>
+                    <input type="text" id="precio" name="precio" class="w-40 input-prymary" placeholder="0" required/>
                 </div>
+                <p class="text-slate-500 text-xs">El precio tiene que ser correspondiente a la moneda actual</p>
 
                 <h2 class="mt-2 font-bold text-xl px-2">Describe el inmueble</h2>
                 <div class="mt-1 px-2 mx-2">
@@ -130,21 +138,20 @@ $consulta1 = mysqli_query($conexion,$query);
 
                 <div class="mt-3 px-2 mx-2">
                     <label for="username" class="block text-base mb-2">Descripción del inmueble</label>
-                    <input name="descripciónInmueble" id="descripciónInmueble" cols="30" rows="5"
+                    <textarea name="descripciónInmueble" id="descripciónInmueble" cols="30" rows="5"
                            maxlength="700px" required
-                           class="border resize-x w-80  text-base px-2 py-1 focus:outline-none focus:ring-0 focus:border-morado rounded-md">
+                          class="border resize-x w-80  text-base px-2 py-1 focus:outline-none focus:ring-0 focus:border-morado rounded-md">
+                   </textarea>
 
                 </div>
             </article>
 
+            <!-- Botones de confirmacion -->
             <div class="flex justify-between m-3">
-                <button class="button-orange" onclick="history.back()">
-                    Regresar
-                </button>
-
+                <button class="button-orange" onclick="history.back()">Regresar</button>
                 <div>
-                    <a href="../panelAsesor.php" class="button-danger mx-3">Salir</a>
-                    <button class="button-secundary">Continuar</button>
+                    <a href="../panelAsesor.php?idasesor=<?php echo $_SESSION['idasesor']?>" class="button-danger mx-3">Salir</a>
+                    <button class="button-secundary" type="submit">Continuar</button>
                 </div>
             </div>
         </form>
@@ -162,6 +169,13 @@ $consulta1 = mysqli_query($conexion,$query);
         <img src="../../../src/img/icons/bienescompartidosBL.svg" alt="BienesCompartidos" width="135px">
     </div>
 </footer>
+
+<script>
+    const input = document.getElementById("precio");
+    input.addEventListener("input", function () {
+        formatCurrency(this);
+    });
+</script>
 </body>
 
 </html>

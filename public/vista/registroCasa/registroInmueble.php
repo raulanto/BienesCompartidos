@@ -1,12 +1,3 @@
-<?php
-// session_start();
-// if(!$_SESSION['logueado']==true){
-//     header("Location: ../login.php");
-// }
-
-?>
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -17,7 +8,7 @@
 
     <link href="../../../dist/output.css" rel="stylesheet">
 
-    <title>Registro usuario</title>
+    <title>Registro Inmueble</title>
     <style>
         html,
         body {
@@ -28,6 +19,7 @@
 
 </head>
 <?php
+session_start();
 require_once('../../Controlador/conector.php');
 $query = "SELECT
       subtipodeinmueble.nombre, 
@@ -62,17 +54,7 @@ $consulta2 = mysqli_query($conexion, $query2);
     }
 </script>
 
-<nav class="flex flex-row p-1 max-w-screen justify-between items-center ">
-    <!-- Contenido de la barra de navegación -->
-    <div class="flex ml-12 ">
-        <img class="" src="../../../src/img/icons/bienescompartidosCL.svg" alt="" width="127.78px" height="33px">
 
-        <a href="" class="a-primary text-morado">Inicio</a>
-        <a href="" class="a-primary ">Inicio</a>
-        <a href="" class="a-primary ">Inicio</a>
-        <a href="" class="a-primary ">Inicio</a>
-    </div>
-</nav>
 <main class="flex-grow">
     <!-- Contenido principal de la página -->
     <section class="flex h-fit text-left  p-2 my-5">
@@ -173,7 +155,7 @@ $consulta2 = mysqli_query($conexion, $query2);
             <div class="flex justify-between m-3">
                 <button class="button-orange" onclick="history.back()">Regresar</button>
                 <div>
-                    <a href="../panelAsesor.php" class="button-danger mx-3">Salir</a>
+                    <a href="../panelAsesor.php?idasesor=<?php echo $_SESSION['idasesor']?>" class="button-danger mx-3">Salir</a>
                     <button class="button-secundary" type="submit">Continuar</button>
                 </div>
             </div>

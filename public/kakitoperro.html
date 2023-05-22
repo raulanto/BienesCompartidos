@@ -30,57 +30,24 @@
     return $precioFormateado;
 }
 
-  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     // La solicitud se realizó mediante el método GET
     // Aquí puedes procesar los parámetros recibidos y realizar las validaciones necesarias
-    $tipoInmueble = $_POST['tipoInmueble'];
-    $Ubicacion=$_POST['Ubicacion'];
-    $precio=$_POST['precio'];
-    $operacion=$_POST['operacion'];
-   
-    require_once ('Controlador/conector.php');
-    $query = "SELECT
-    inmueble.nombre, 
-    inmueble.precio, 
-    inmueble.descripcion, 
-    ubicacion.calle, 
-    inmueble.ID_inmueble, 
-    galeria.img, 
-    estadoinmuebles.nombre AS estado
-  FROM
-    inmueble
-    INNER JOIN
-    ubicacion
-    ON 
-      inmueble.ID_inmueble = ubicacion.fk_inmueble
-    INNER JOIN
-    galeria
-    ON 
-      inmueble.ID_inmueble = galeria.fk_inmueble
-    INNER JOIN
-    caracteristicas
-    ON 
-      inmueble.ID_inmueble = caracteristicas.fk_inmueble
-    INNER JOIN
-    estadoinmuebles
-    ON 
-      caracteristicas.fk_estadoinmueble = estadoinmuebles.ID_estadoinmuebles
-  WHERE
-    inmueble.precio >= '$precio' AND
-    inmueble.fk_tipodeinmueble >= '$tipoInmueble' AND
-    ubicacion.fk_colonia >= '$Ubicacion' AND
-    inmueble.fk_tipooperacion = '$operacion'
-  GROUP BY
-    inmueble.ID_inmueble";
-  $resultados = mysqli_query($conexion, $query);
+    $id_inmueble = $_GET['idinmueble'];
+    $query = "";
 
-
+$stmt = mysqli_prepare($conexion, $query);
+mysqli_stmt_bind_param($stmt, "s", $idasesor);
+mysqli_stmt_execute($stmt);
+$resultados = mysqli_stmt_get_result($stmt);
 
 } else {
     // La solicitud no se realizó mediante el método GET
     // Puedes mostrar un mensaje de error o redirigir a otra página
     echo "Error: La solicitud debe realizarse mediante el método GET.";
 }
+   
+   
 
 ?>
 
@@ -124,7 +91,7 @@
               <?php
               while ($columna = mysqli_fetch_assoc($resultados)) {
                 echo '<figcaption class="w-full md:w-1/2 lg:w-1/4 bg-white rounded-md m-2">';
-                echo '<a href="mostrarCasasEncontrada.php?idinmueble="'.$columna['ID_inmueble'].' class="relative block h-48 overflow-hidden rounded">';
+                echo '<a href="" class="relative block h-48 overflow-hidden rounded">';
                 echo '<img alt="ecommerce" class="block h-full w-full object-cover object-center cursor-pointer" src=" vista/'.$columna['img'].'" />';
                 echo '<p class="absolute top-0 bg-white text-morado rounded-lg m-2 text-base px-1">'.$columna['estado'].'</p>';
                 echo '</a>';

@@ -17,6 +17,7 @@
     </style>
 </head>
 <?php
+session_start();
   	    require_once ('../../Controlador/conector.php');
       $query="SELECT
       colonias.ID_colonias,
@@ -110,13 +111,12 @@
                 </article>
 
                 <div class="flex justify-between m-3">
-                    <button class="button-orange">
-                        Regresar
-                    </button>
+                    <button class="button-orange" onclick="history.back()">Regresar</button>
+
 
                     <div>
-                        <a href="../panelAsesor.php" class="button-danger mx-3" onclick="history.back()">Salir</a>
-                        <button class="button-secundary">Continuar</button>
+                        <a href="../panelAsesor.php?idasesor=<?php echo $_SESSION['idasesor']?>" class="button-danger mx-3">Salir</a>
+                        <button type="submit" class="button-secundary">Continuar</button>
                     </div>
                 </div>
         </form>
