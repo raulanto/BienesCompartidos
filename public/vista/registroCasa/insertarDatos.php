@@ -29,8 +29,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($conexion->query($query2) === TRUE) {
 
 
-        $query4 = "INSERT INTO inmueblepr.caracteristicas (superficieTerrestre, superficieConstru, no_estacionamiento, no_baños, no_recamaras, fk_inmueble, fk_estadoinmueble)
-        VALUES ('{$Caracteristicas->superficieTerrestre}', '{$Caracteristicas->superficieConstru}', '{$Caracteristicas->no_estacionamiento}', '{$Caracteristicas->no_baños}', '{$Caracteristicas->no_recamaras}', '$id', '{$Caracteristicas->fk_estadoinmueble}')";
+        $query4 = "INSERT INTO inmueblepr.caracteristicas (superficieTerrestre, superficieConstru, no_estacionamiento, no_baños, no_recamaras, fk_inmueble, fk_estadoinmueble,no_NivelesCasa)
+        VALUES ('{$Caracteristicas->superficieTerrestre}', '{$Caracteristicas->superficieConstru}', '{$Caracteristicas->no_estacionamiento}', '{$Caracteristicas->no_baños}', '{$Caracteristicas->no_recamaras}', '$id', '{$Caracteristicas->fk_estadoinmueble}','{$Caracteristicas->no_NivelesCasa}')";
 
         if ($conexion->query($query4) === TRUE) {
 

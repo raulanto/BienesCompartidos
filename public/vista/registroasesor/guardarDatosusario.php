@@ -4,7 +4,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Aquí puedes procesar los parámetros recibidos y realizar las validaciones necesaria
     // Continuar con tu lógica de negocio
     // ...
-    $usuario = $_POST['usuario'];
+    $nombreusuario = $_POST['usuario'];
     $password = $_POST['password'];
     //Generar el codigo alatorio
     $token = '';
@@ -23,16 +23,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         return $token;
     }
+    require_once('../../Controlador/conector.php');
 
-    $token = generartokenAleatorio();
+        $token = generartokenAleatorio();
+        $validar="
+            SELECT
+        datosusuario.ID_datosusuario 
+    FROM
+        datosusuario 
+    WHERE
+        datosusuario.username ='$nombreusuario'" ;
+    echo $nombreusuario;
+    $resultado = mysqli_query($conexion, $validar);
 
-    // Ejecutar la consulta
-    require_once('Clases.php');
-    session_start();
-    $asesor=$_SESSION['Asesor'];
-    $_SESSION['DatosUsuario'] = new DatosUsuario($usuario, $password, $token,$asesor->id);
+    // Obtener el número de filas
+    $numFilas = mysqli_num_rows($resultado);
 
-    header("Location: registro-3.php");
+    // Validar si se encontraron datos
+    if ($numFilas > 0) {
+        header("Location: informacionnovalida.php");
+    } else {
+            // Ejecutar la consulta
+            echo 'si';
+            require_once('Clases.php');
+            session_start();
+            $asesor=$_SESSION['Asesor'];
+            $_SESSION['DatosUsuario'] = new DatosUsuario($nombreusuario, $password, $token,$asesor->id);
+
+            header("Location: registro-3.php");
+    }
+
+
 
 
 

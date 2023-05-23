@@ -14,12 +14,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nombre=$_POST['nombreinmueble'];
     $precio=$_POST['precio'];
     $descripcion=$_POST['descripciónInmueble'];
+    $noNivelesCasa=$_POST['noNivelesCasa'];
     // archivo1.php
     require_once ('clases.php');
     session_start();
     $inmueble=$_SESSION['Inmueble'];
 
-    $_SESSION['Caracteristicas']  = new Caracteristicas($superficieTerrestre, $superficieConstru, $no_estacionamiento,$no_baños,$no_recamaras,$inmueble->id, $fk_estadoinmueble);
+    $_SESSION['Caracteristicas']  = new Caracteristicas($superficieTerrestre, $superficieConstru, $no_estacionamiento,$no_baños,$no_recamaras,$inmueble->id, $fk_estadoinmueble, $noNivelesCasa);
     $inmueble->nombre=$nombre;
     $inmueble->precio=$precio;
     $inmueble->descripcion=$descripcion;

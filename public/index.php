@@ -32,7 +32,7 @@
         </div>
 </nav>
 
-<main class="flex flex-grow bg-cover " style="background-image:url(../src/img/fondoVH.jpg) ;">
+<main class="flex flex-grow bg-cover bg-center " style="background-image:url(../src/img/fondovilaher.jpg) ;">
 
     <!-- login de Bienes Compartidos para hacesor -->
     <article id="devblog" class=" bg-cover bg-center rounded-r-lg   flex flex-initial w-4/6 "

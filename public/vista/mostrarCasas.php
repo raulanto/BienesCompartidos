@@ -27,16 +27,7 @@
 <body class="flex flex-col min-h-screen">
 
   <?php
-  function mostrarPrecioMexicano($precio) {
-    // Formatear el número con notación de miles y decimales
-    $precioFormateado = number_format($precio, 2, '.', ',');
 
-    // Agregar el símbolo de moneda y el signo de pesos
-    $precioFormateado = '$ ' . $precioFormateado;
-
-    // Devolver el precio formateado
-    return $precioFormateado;
-}
 
   if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     // La solicitud se realizó mediante el método GET
@@ -163,7 +154,7 @@ $resultados = mysqli_stmt_get_result($stmt);
                     <!-- Targeta de casa -->
               <?php
               while ($columna = mysqli_fetch_assoc($resultados)) {
-                echo '<figcaption class="w-full md:w-1/2 lg:w-1/4 bg-white rounded-md m-2">';
+                echo '<figcaption class="w-full md:w-1/2 lg:w-1/4 bg-white rounded-md m-2 border">';
                 echo '<a href="#" class="relative block h-48 overflow-hidden rounded">';
                 echo '<img alt="ecommerce" class="block h-full w-full object-cover object-center cursor-pointer" src=" '.$columna['img'].'" />';
                 echo '<p class="absolute top-0 bg-white text-morado rounded-lg m-2 text-base px-1">'.$columna['estado'].'</p>';
@@ -171,7 +162,7 @@ $resultados = mysqli_stmt_get_result($stmt);
                 echo '<section class="mt-1 p-4">';
                 echo '<h5 class="hyphens-manual text-purple-700 truncate font-bold text-lg">' . $columna['nombre'] . '</h5>';
                 echo '<h5 class="hyphens-manual  truncate font-semibold">Desde</h5>';
-                echo '<p class="flex hyphens-manual text-base truncate font-bold">' . mostrarPrecioMexicano($columna['precio']) . '</p>';
+                echo '<p class="flex hyphens-manual text-base truncate font-bold">$' . $columna['precio'] . '</p>';
                 echo '<p class="flex hyphens-manual text-base truncate leading-7 tracking-tight">' . $columna['descripcion'] . '</p>';
                 echo '<p class="hyphens-manual text-base truncate font-bold">' . $columna['calle'] . '</p>';
                 echo '</section>';

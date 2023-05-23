@@ -17,9 +17,11 @@
     </style>
     <script>
         function formatCurrency(input) {
-            const value = parseLocaleNumber(input.value, "es-MX");
-            const format = new Intl.NumberFormat("es-MX").format(value);
-            input.value = format;
+            if(input.value.length>0 && input.value[input.value.length-1] !="." && input.value[input.value.length-1] !=","){
+                const value = parseLocaleNumber(input.value, "es-MX");
+                const format = new Intl.NumberFormat("es-MX").format(value);
+                input.value = format;
+            }
         }
 
         function parseLocaleNumber(stringNumber, locale) {
@@ -75,18 +77,23 @@ $consulta1 = mysqli_query($conexion,$query);
 
                 <div class="flex  px-2 mt-3"">
                 <div class=" mt-3 px-2">
-                    <label for="username" class="block text-base mb-2 font-bold">Recamaras</label>
+                    <label for="noNivelesCasa" class="block text-base mb-2 font-bold">Niveles de la casa</label>
+                    <input type="number"  id="noNivelesCasa" name="noNivelesCasa" class="w-40 input-prymary"
+                           placeholder="0" required />
+                </div>
+                <div class=" mt-3 px-2">
+                    <label for="recamaras" class="block text-base mb-2 font-bold">Recamaras</label>
                     <input type="number" id="recamaras" name="recamaras" class="w-40 input-prymary"
                            placeholder="0" required />
                 </div>
                 <div class="mt-3 px-2">
-                    <label for="username" class="block text-base mb-2 font-bold">Baños</label>
+                    <label for="banos" class="block text-base mb-2 font-bold">Baños</label>
                     <input type="number" id="banos" name="banos" class="w-40 input-prymary" placeholder="0" required />
                 </div>
                 </div>
                 <div class="flex  px-2 mt-3"">
                 <div class=" mt-3 px-2">
-                    <label for="username" class="block text-base mb-2 font-bold">Estacionamiento</label>
+                    <label for="estacionamiento" class="block text-base mb-2 font-bold">Estacionamiento</label>
                     <input type="number" id="estacionamiento" name="estacionamiento" class="w-40 input-prymary"
                            placeholder="0" required/>
                 </div>
@@ -95,12 +102,12 @@ $consulta1 = mysqli_query($conexion,$query);
 
                 <div class="flex  px-2 ">
                     <div class="mt-3 px-2">
-                        <label for="username" class="block text-base mb-2 font-bold">Superficie Construida</label>
-                        <input type="number" id="superficieConstruida" name="superficieConstruida" class="w-40 input-prymary"
+                        <label for="superficieConstruida" class="block text-base mb-2 font-bold">Superficie Construida</label>
+                        <input type="number" id="superficieConstruida" name="superficieConstruida" class="w-40 input-prymary" 
                                placeholder="0" required/>
                     </div>
                     <div class="mt-3 px-2">
-                        <label for="username" class="block text-base mb-2 font-bold">Superficie Terrestre</label>
+                        <label for="superficieTerrestre" class="block text-base mb-2 font-bold">Superficie Terrestre</label>
                         <input required type="number" id="superficieTerrestre" name="superficieTerrestre" class="w-40 input-prymary" placeholder="0" />
                     </div>
                 </div>
@@ -121,15 +128,15 @@ $consulta1 = mysqli_query($conexion,$query);
                 </div>
                 <h2 class="mt-2 font-bold text-xl px-2">Precio</h2>
                 <div class="mt-1 px-2 mx-2">
-                    <label for="username" class="block text-base mb-2 font-bold text-gray-500">Precio del
+                    <label for="precio" class="block text-base mb-2 font-bold text-gray-500">Precio del
                         inmueble</label>
                     <input type="text" id="precio" name="precio" class="w-40 input-prymary" placeholder="0" required/>
                 </div>
-                <p class="text-slate-500 text-xs">El precio tiene que ser correspondiente a la moneda actual</p>
+        <p class="text-slate-500 text-xs">El precio tiene que ser correspondiente a la moneda actual(pesos Méxicanos)</p>
 
                 <h2 class="mt-2 font-bold text-xl px-2">Describe el inmueble</h2>
                 <div class="mt-1 px-2 mx-2">
-                    <label for="username" class="block text-base mb-2 font-bold text-gray-500">Titulo del
+                    <label for="nombreinmueble" class="block text-base mb-2 font-bold text-gray-500">Titulo del
                         inmueble</label>
                     <input type="text" id="nombreinmueble" name="nombreinmueble"
                            class="  border w-80 text-base px-2 py-1  focus:outline-none focus:ring-0 focus:border-morado rounded-md"
@@ -137,11 +144,10 @@ $consulta1 = mysqli_query($conexion,$query);
                 </div>
 
                 <div class="mt-3 px-2 mx-2">
-                    <label for="username" class="block text-base mb-2">Descripción del inmueble</label>
+                    <label for="descripciónInmueble" class="block text-base mb-2">Descripción del inmueble</label>
                     <textarea name="descripciónInmueble" id="descripciónInmueble" cols="30" rows="5"
-                           maxlength="700px" required
-                          class="border resize-x w-80  text-base px-2 py-1 focus:outline-none focus:ring-0 focus:border-morado rounded-md">
-                   </textarea>
+                           maxlength="700px" required placeholder="Descripción Inmueble"
+                          class="border resize-x w-80  text-base px-2 py-1 focus:outline-none focus:ring-0 focus:border-morado rounded-md"></textarea>
 
                 </div>
             </article>

@@ -71,7 +71,7 @@
                     </h4>
                     <div class="mt-3">
                         <label for="usuario" class="block text-base mb-1">Usuario</label>
-                        <input type="text" min="18" id="usuario"  name="usuario" class="w-full input-prymary " placeholder="usuario..." />
+                        <input type="text"  id="usuario"  name="usuario" class="w-full input-prymary " placeholder="usuario..." required/>
                     </div>
                     <div class="mt-3">
                         <label for="password" class="block text-base mb-1">Contraseña</label>

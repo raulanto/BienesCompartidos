@@ -82,7 +82,7 @@ FROM
                 height="33px"
               />
               <a href="" class="a-primary ">Inicio</a>
-              <a href="" class="a-primary ">Conocenos</a>
+              <a href="../../buscar.php" class="a-primary ">Buscar</a>
 
             </div>
         <!-- button profile -->

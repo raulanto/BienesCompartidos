@@ -39,8 +39,9 @@ class Caracteristicas {
     public $no_recamaras;
     public $fk_inmueble;
     public $fk_estadoinmueble;
+    public $no_NivelesCasa;
     
-    public function __construct($superficieTerrestre, $superficieConstru, $no_estacionamiento, $no_baños, $no_recamaras, $fk_inmueble, $fk_estadoinmueble) {
+    public function __construct($superficieTerrestre, $superficieConstru, $no_estacionamiento, $no_baños, $no_recamaras, $fk_inmueble, $fk_estadoinmueble,$no_NivelesCasa) {
         $this->superficieTerrestre = $superficieTerrestre;
         $this->superficieConstru = $superficieConstru;
         $this->no_estacionamiento = $no_estacionamiento;
@@ -48,6 +49,7 @@ class Caracteristicas {
         $this->no_recamaras = $no_recamaras;
         $this->fk_inmueble = $fk_inmueble;
         $this->fk_estadoinmueble = $fk_estadoinmueble;
+        $this->no_NivelesCasa=$no_NivelesCasa;
     }
 
     public function insertarCarac($conexion)
