@@ -12,7 +12,7 @@ session_start();
                 datosusuario 
             WHERE
                 datosusuario.username = '$nombre' 
-                AND datosusuario.PASSWORD = '$password'";
+                or datosusuario.PASSWORD = '$password'";
         $consulta = mysqli_query($conexion,$query);
 
         if(!$consulta){ 
