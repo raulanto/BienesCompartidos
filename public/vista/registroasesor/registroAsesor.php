@@ -22,7 +22,7 @@
 <nav class="flex flex-row p-2 max-w-screen justify-between items-center sticky top-0  z-10">
         <div class="flex ml-12 ">
             <img class="" src="../../../src/img/icons/bienescompartidosCL.svg" alt="" width="127.78px" height="33px">
-            <a href="" class="a-primary ">Inicio</a>
+            <a href="../../../index.php" class="a-primary ">Inicio</a>
             <a href="../../../buscar.php" class="a-primary ">Buscar</a>
         </div>
     <div class="flex">
@@ -39,10 +39,10 @@
         <section class="flex  ">
             <!-- titulo -->
             <div class="w-96 ">
-                <h2 class="text-5xl  font-extrabold ml-11 mt-11 text-left line-clamp-5  leading-10
+                <h2 class="text-5xl  font-extrabold ml-11 mt-11 text-left 
                     ">Comienza uniéndote a BienesCompartidos</h2>
                 <p class="ml-11 mt-4 mb-8">
-                    Crea tu cuenta y agrega tu empresa para subir tus inmuebles.
+                    Crea tu cuenta y agrega tu empresa para subir los  inmuebles  de tu empresa.
                 </p>
                 <a href="registro-1.php" class="button-prymary ml-11">Comenzar.</a>
             </div>

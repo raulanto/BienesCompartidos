@@ -116,8 +116,8 @@ $consulta1 = mysqli_query($conexion,$query);
                 <div class="flex flex-col px-2 mx-2 w-60">
                     <select data-te-select-init data-te-select-visible-options="3" id="colonia"
                             class="h-9 py-1 m-2 focus:outline-none focus:ring-0 focus:border-morado rounded-md"
-                            id="Antiguedad" name="antiguedad" >
-                        <option class="">Selecione una opcion</option>
+                            id="Antiguedad" name="antiguedad" required>
+                        <option class="" disabled selected>Selecione una opcion</option>
                         <?php
                         foreach ($consulta1 as $Antiguedad) {
                             echo '<option value="' . $Antiguedad['ID_estadoinmuebles'] . '">' . $Antiguedad['nombre'] . '</option>';

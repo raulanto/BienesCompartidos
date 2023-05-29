@@ -114,8 +114,9 @@ $consulta2 = mysqli_query($conexion, $query2);
                         class="h-9 py-1 m-2 focus:outline-none focus:ring-0 focus:border-morado rounded-md"
                         name="tipoOperacion"
                         id="tipoOperacion"
+                        required
                     >
-                        <option value="0">Selecione una opcion</option>
+                        <option value="" disabled selected>Selecione una opcion</option>
                         <?php
                         foreach ($consulta2 as $tipoOperacion) {
                             echo '<option value="' . $tipoOperacion['ID_operacion'] . '">' . $tipoOperacion['nombre'] . '</option>';
@@ -134,8 +135,9 @@ $consulta2 = mysqli_query($conexion, $query2);
                             class="h-9 py-1 m-2 focus:outline-none focus:ring-0 focus:border-morado rounded-md"
                             id="tipoInmueble"
                             name="tipoInmueble"
+                            required
                         >
-                            <option value="0">Selecione una opcion</option>
+                            <option value="0" disabled selected>Selecione una opcion</option>
                             <?php
                             foreach ($consulta1 as $tipoCasa) {
                                 echo '<option value="' . $tipoCasa['ID_subtipodeinmueble'] . '">' . $tipoCasa['nombre'] . '</option>';

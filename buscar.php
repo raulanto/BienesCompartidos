@@ -19,9 +19,11 @@
     </style>
     <script>
         function formatCurrency(input) {
-            const value = parseLocaleNumber(input.value, "es-MX");
-            const format = new Intl.NumberFormat("es-MX").format(value);
-            input.value = format;
+            if(input.value.length>0 && input.value[input.value.length-1] !="." && input.value[input.value.length-1] !=","){
+                const value = parseLocaleNumber(input.value, "es-MX");
+                const format = new Intl.NumberFormat("es-MX").format(value);
+                input.value = format;
+            }
         }
 
         function parseLocaleNumber(stringNumber, locale) {
@@ -61,7 +63,7 @@ $consulta2 = mysqli_query($conexion, $query2);
     <nav class="flex flex-row p-2 max-w-screen justify-between items-center sticky top-0 bg-white z-10">
         <div class="flex ml-12 ">
             <img class="" src="src/img/icons/bienescompartidosCL.svg" alt="" width="127.78px" height="33px">
-            <a href="" class="a-primary ">Inicio</a>
+            <a href="index.php" class="a-primary ">Inicio</a>
             <a href="#" class="a-primary ">Buscar</a>
         </div>
         <div class="flex">
@@ -83,8 +85,9 @@ $consulta2 = mysqli_query($conexion, $query2);
                     class="h-9 py-1 m-2 focus:outline-none focus:ring-0 focus:border-morado rounded-md"
                     id="tipoInmueble"
                     name="tipoInmueble"
+                    required
                 >
-                    <option value="0">Tipo de inmueble</option>
+                    <option value="" disabled selected>Tipo de inmueble</option>
                     <?php
                     foreach ($consulta1 as $tipoCasa) {
                         echo '<option value="' . $tipoCasa['ID_subtipodeinmueble'] . '">' . $tipoCasa['nombre'] . '</option>';
@@ -96,9 +99,9 @@ $consulta2 = mysqli_query($conexion, $query2);
                     data-te-select-visible-options=""
                     class="h-9 py-1 m-2 w-fit focus:outline-none focus:ring-0 focus:border-morado rounded-md"
                     id="Ubicacion"
-                    name="Ubicacion"
+                    name="Ubicacion" required
                 >
-                    <option value="0">Ubicacion</option>
+                    <option value="" disabled selected>Ubicacion</option>
                     <?php
                     foreach ($consulta3 as $ubicacion) {
                         echo '<option value="' . $ubicacion['ID_colonias'] . '">' . $ubicacion['nombre'] . '</option>';
@@ -109,17 +112,17 @@ $consulta2 = mysqli_query($conexion, $query2);
                        class=" m-2 border w-36 text-base px-2 h-9 focus:outline-none focus:ring-0 focus:border-morado rounded-md"
                        type="text"
                        oninput="formatCantidad(this)"
-                       placeholder="Precio"/>
+                       placeholder="Precio" required/>
                 <div class="">
                     <select
                         data-te-select-init
                         data-te-select-visible-options=""
                         class="h-9 py-1 m-2 focus:outline-none focus:ring-0 focus:border-morado rounded-md"
                         name="operacion"
-
+                        required
                         id="Operacion"
                     >
-                        <option value="0">Operacion</option>
+                        <option value="" disabled selected>Operacion</option>
                         <?php
                         foreach ($consulta2 as $tipoOperacion) {
                             echo '<option value="' . $tipoOperacion['ID_operacion'] . '">' . $tipoOperacion['nombre'] . '</option>';

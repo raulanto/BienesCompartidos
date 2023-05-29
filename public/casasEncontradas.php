@@ -123,8 +123,8 @@
                     <!-- Targeta de casa -->
               <?php
               while ($columna = mysqli_fetch_assoc($resultados)) {
-                echo '<figcaption class="w-full md:w-1/2 lg:w-1/4 bg-white rounded-md m-2">';
-                echo '<a href="mostrarCasasEncontrada.php?idinmueble="'.$columna['ID_inmueble'].' class="relative block h-48 overflow-hidden rounded">';
+                echo '<figcaption class="w-full md:w-1/2 lg:w-1/4 bg-white rounded-md m-2 transition-all hover:shadow-xl">';
+                echo '<a href="mostrarCasaEncontrada.php?idinmueble=' . $columna['ID_inmueble'] . '" class="relative block h-48 overflow-hidden rounded">';
                 echo '<img alt="ecommerce" class="block h-full w-full object-cover object-center cursor-pointer" src=" vista/'.$columna['img'].'" />';
                 echo '<p class="absolute top-0 bg-white text-morado rounded-lg m-2 text-base px-1">'.$columna['estado'].'</p>';
                 echo '</a>';

@@ -97,7 +97,7 @@ session_start();
                             <select data-te-select-init data-te-select-visible-options="3" id="colonia" name="colonia"
                                 class="h-9 py-1 m-2 focus:outline-none focus:ring-0 focus:border-morado rounded-md"
                                 required >
-                                <option class="">Selecione una opcion</option>
+                                <option class="" disabled selected>Selecione una opcion</option>
                             <?php
                                 foreach ($consulta1 as $colonia) {
                                 echo '<option value="' . $colonia['ID_colonias'] . '">' . $colonia['colonia'] . '</option>';

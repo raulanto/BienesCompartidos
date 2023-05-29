@@ -81,8 +81,7 @@ FROM
                 width="127.78px"
                 height="33px"
               />
-              <a href="" class="a-primary ">Inicio</a>
-              <a href="../../buscar.php" class="a-primary ">Buscar</a>
+             
 
             </div>
         <!-- button profile -->

@@ -80,15 +80,15 @@ $resultados = mysqli_stmt_get_result($stmt);
 ?>
 
 <!-- Encabezado de la pagina -->
-<nav class="flex flex-row p-1 max-w-screen justify-between items-center ">
 <script defer src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" />
 <link href="../../dist/output.css" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-          integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+crossorigin="anonymous" referrerpolicy="no-referrer"/>
 <!-- page -->
 <main class="min-h-screen w-full bg-cover bg-white bg-origin-content text-gray-700 " x-data="layout"  >
+  <nav class="flex flex-row p-1 max-w-screen justify-between items-center ">
     <!-- header page -->
     <header class="flex w-full items-center justify-between  border-gray-300 bg-white p-2 z-10">
         <!-- logo -->
@@ -100,9 +100,7 @@ $resultados = mysqli_stmt_get_result($stmt);
                 width="127.78px"
                 height="33px"
               />
-              <a href="" class="a-primary ">Inicio</a>
-              <a href="" class="a-primary ">Conocenos</a>
-
+              
             </div>
         <!-- button profile -->
         <div>
@@ -139,6 +137,7 @@ $resultados = mysqli_stmt_get_result($stmt);
             </div>
         </div>
     </header>
+  </nav>
     <div class=" ">
         <div class=" bg-indigo-50">
             <!-- Header -->

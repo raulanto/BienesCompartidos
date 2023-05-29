@@ -21,11 +21,12 @@ module.exports = {
                     'url("../src/img/icons/bienescompartidosBL.svg")',
                 bienescompartidosCL:
                     'url("../src/img/icons/bienescompartidosCL.svg")',
+                fondoIndex: 'url("../src/img/Desktop.png")',
+                fondoIndexabajo: 'url("../src/img/fondo4.png")',
             },
         },
     },
     plugins: [
-        require("@tailwindcss/forms"),
-        require("tw-elements/dist/plugin.cjs"),
+        require("@tailwindcss/forms")
     ],
 };

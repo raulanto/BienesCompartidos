@@ -24,7 +24,7 @@
 <nav class="flex flex-row p-1 max-w-screen justify-between items-center ">
 <div class="flex ml-12 ">
             <img class="" src="../src/img/icons/bienescompartidosCL.svg" alt="" width="127.78px" height="33px">
-            <a href="" class="a-primary ">Inicio</a>
+            <a href="../index.php" class="a-primary ">Inicio</a>
             <a href="../buscar.php" class="a-primary ">Buscar</a>
         </div>
         <div class="flex">

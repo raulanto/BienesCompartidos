@@ -5,27 +5,29 @@
 /* Componentes  */
 @layer components {
   .a-primary {
-    @apply mx-3 self-center w-fit h-fit hover:underline hover:text-purple-600;
+    @apply mx-3 self-center w-fit h-fit hover:underline hover:text-purple-600  transition-all;
   }
   /* Botones */
   .button-orange {
-    @apply bg-white p-1 px-2 border border-orange-400 text-orange-400 rounded-md font-semibold hover:bg-orange-400 hover:text-white;
+    @apply bg-white p-1 px-2 border border-orange-400 text-orange-400 rounded-md font-semibold hover:bg-orange-400 hover:text-white transition-all;
   }
   .button-danger {
-    @apply bg-white p-1 px-2 border border-red-400 text-red-400 rounded-md font-semibold hover:bg-red-400 hover:text-white;
+    @apply bg-white p-1 px-2 border border-red-400 text-red-400 rounded-md font-semibold hover:bg-red-400 hover:text-white transition-all;
   }
   .button-prymary {
-    @apply bg-purple-700 p-1 px-2 border border-purple-700 text-white rounded-md font-semibold hover:bg-white hover:text-purple-700;
+    @apply bg-purple-700 p-1 px-2 border border-purple-700 text-white rounded-md font-semibold hover:bg-white hover:text-purple-700 transition-all;
   }
   .button-secundary {
-    @apply bg-indigo-700 p-1 px-2 border border-indigo-700 text-white rounded-md font-semibold hover:bg-white hover:text-indigo-700;
+    @apply bg-indigo-700 p-1 px-2 border border-indigo-700 text-white rounded-md font-semibold hover:bg-white hover:text-indigo-700 transition-all;
   }
   .button-tercery {
-    @apply bg-sky-700 p-1 px-2 border border-sky-700 text-white rounded-md font-semibold hover:bg-white hover:text-sky-700;
+    @apply bg-sky-700 p-1 px-2 border border-sky-700 text-white rounded-md font-semibold hover:bg-white hover:text-sky-700 transition-all;
   }
   .input-prymary {
-    @apply border  text-base px-2 py-1  focus:outline-none focus:ring-0 focus:border-morado rounded-md;
+    @apply border  text-base px-2 py-1  focus:outline-none focus:ring-0 focus:border-morado rounded-md transition-all;
   }
+
+
 }
 
 /* Base de de html */
