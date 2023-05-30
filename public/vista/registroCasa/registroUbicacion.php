@@ -36,9 +36,9 @@ session_start();
 
 ?>
 <body class="flex flex-col min-h-screen bg-fondoRegistro bg-cover bg-center bg-scale-75">
-    <nav class="flex flex-row p-1 max-w-screen justify-between items-center ">
+    <!-- <nav class="flex flex-row p-1 max-w-screen justify-between items-center "> -->
         <!-- Contenido de la barra de navegación -->
-        <div class="flex ml-12 ">
+        <!-- <div class="flex ml-12 ">
         <img class="" src="../../../src/img/icons/bienescompartidosCL.svg" alt="" width="127.78px" height="33px">
 
             <a href="" class="a-primary text-morado">Inicio</a>
@@ -47,7 +47,7 @@ session_start();
             <a href="" class="a-primary ">Inicio</a>
         </div>
 
-    </nav>
+    </nav>  -->
     <main class="flex-grow">
         <!-- Contenido principal de la página -->
         <section class="flex h-fit text-left  p-2 my-5">

@@ -112,7 +112,7 @@ $consulta1 = mysqli_query($conexion,$query);
                     </div>
                 </div>
                 <p class="text-slate-500 text-xs">La superficie tiene que ser ingresada en metros cuadrados</p>
-                <h2 class="mt-2 font-bold text-xl px-2">Antiguedad</h2>
+                <h2 class="mt-2 font-bold text-xl px-2">Condicion del inmueble</h2>
                 <div class="flex flex-col px-2 mx-2 w-60">
                     <select data-te-select-init data-te-select-visible-options="3" id="colonia"
                             class="h-9 py-1 m-2 focus:outline-none focus:ring-0 focus:border-morado rounded-md"

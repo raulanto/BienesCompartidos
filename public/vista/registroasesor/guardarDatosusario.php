@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header("Location: informacionnovalida.php");
     } else {
             // Ejecutar la consulta
-            echo 'si';
+            echo $password;
             require_once('Clases.php');
             session_start();
             $asesor=$_SESSION['Asesor'];

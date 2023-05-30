@@ -96,7 +96,7 @@ $consulta2 = mysqli_query($conexion, $query2);
             <article class="w-full bg-white mt-3 rounded-md p-4">
                 <div class="px-2">
                     <h1 class="text-3xl font-extrabold ">
-                        !Hola, comencemos a crear tu aviso¡
+                    !Hola, comencemos a crear tu aviso¡
                     </h1>
                     <hr class="border-gray-900  mt-2"/>
                 </div>

@@ -81,6 +81,7 @@
 		inmueble.nombre, 
 		inmueble.precio, 
 		inmueble.descripcion, 
+		inmueble.inmueblecantidad,
 		tipoOperacion.nombre AS tipoOperacion, 
 		tipoInmueble.nombre AS tipoInmueble, 
 		caracteristicas.superficieTerrestre, 
@@ -120,7 +121,7 @@
 
 </head>
 
-<body class="flex flex-col min-h-screen">
+<body class="flex flex-col min-h-screen bg-sky-100">
 
 	<!-- Encabezado de la pagina -->
 	<nav class="flex flex-row p-1 max-w-screen justify-between items-center ">
@@ -145,21 +146,21 @@
 						<div class="flex">
 							<div class="w-48 ">
 
-								<img src="vista/<?php echo $valores[0] ?>" alt="">
+								<img src="vista/<?php echo $valores[1] ?>" alt="">
 							</div>
 							<div class="w-48 ">
 
-								<img src="vista/<?php echo $valores[0] ?>" alt="">
+								<img src="vista/<?php echo $valores[2] ?>" alt="">
 							</div>
 						</div>
 						<figcaption class="flex">
 							<section class="w-48 ">
 
-								<img src="vista/<?php echo $valores[0] ?>" alt="">
+								<img src="vista/<?php echo $valores[3] ?>" alt="">
 							</section>
 							<section class="w-48 ">
 
-								<img src="vista/<?php echo $valores[0] ?>" alt="">
+								<img src="vista/<?php echo $valores[4] ?>" alt="">
 							</section>
 						</figcaption>
 					</figcaption>
@@ -173,14 +174,14 @@
 					<h4 class="font-bold">Desde</h4>
 					<h2 class="text-2xl font-bold"><?php echo $columna2['precio'] ?></h2>
 					<h4>Tipo de inmueble: <?php echo $columna2['tipoInmueble'] ?></h4>
-					<h4>Estado del inmueble: <?php echo $columna2['estadoInmueble'] ?></h4>
+					<h4>Condicion del inmueble: <?php echo $columna2['estadoInmueble'] ?></h4>
 					<hr>
 					<h2 class="font-bold">Caracteristicas</h2>
-					<div class="flex w-96">
+					<div class="flex w-full">
 
-						<h5 class="m-2">Unidades:  <?php echo $columna2['estadoInmueble'] ?></h5>
-						<h5 class="m-2">Metros de construcion: <?php echo $columna2['estadoInmueble'] ?></h5>
-						<h5 class="m-2">Metros de terreno: <?php echo $columna2['estadoInmueble'] ?></h5>
+						<h5 class="m-2">Unidades:  <?php echo $columna2['inmueblecantidad'] ?></h5>
+						<h5 class="m-2">Metros de construcion: <?php echo $columna2['superficieConstru'] ?></h5>
+						<h5 class="m-2">Metros de terreno: <?php echo $columna2['superficieTerrestre'] ?></h5>
 						<h5 class="m-2">Recamaras: <?php echo $columna2['no_recamaras'] ?></h5>
 						<h5 class="m-2 ">Baños:" <?php echo $columna2['no_baños'] ?></h5>
 						<h5 class="m-2 ">Niveles:" <?php echo $columna2['no_NivelesCasa'] ?></h5>

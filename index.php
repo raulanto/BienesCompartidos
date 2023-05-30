@@ -54,7 +54,7 @@
 
     </header>
 
-    <section id="parte1" class="min-h-screen  bg-center  flex flex-col justify-center items-center p-4 " style="background-image:url('src/img/fondo4.png') ;">
+    <section id="parte1" class="min-h-screen bg-cover  bg-center  flex flex-col justify-center items-center p-4 " style="background-image:url('src/img/fondo4.png') ;">
         <article class="backdrop-blur-md bg-white/30 w-5/6 p-4  rounded-md">
            
             <article class="flex flex-col justify-center items-center ">
@@ -104,7 +104,7 @@
             </article>
         </article>
     </section>
-    <section class="min-h-screen  bg-center  flex  items-center  p-4 " style="background-image:url('src/img/Desktop.png') ;">
+    <section class="min-h-screen bg-cover bg-center  flex  items-center  p-4 " style="background-image:url('src/img/Desktop.png') ;">
     <main class="flex    p-2 my-5">
             <section class="flex  ">
                 <!-- titulo -->
@@ -126,7 +126,7 @@
 
     </section>
 
-    <section class="min-h-screen bg-fondo2 flex items-center">
+    <section class="min-h-screen bg-cover bg-fondo2 flex items-center">
         <main class=" w-3/4    p-2 my-5">
                 <section class="flex  ">
                     <!-- titulo -->
