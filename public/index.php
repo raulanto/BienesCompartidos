@@ -18,10 +18,10 @@
 
 
 </head>
-<body class="flex flex-col min-h-screen">
+<body class="flex flex-col min-h-screen bg-cover bg-center" style="background-image:url(../src/img/fondovilaher.jpg) ;">
 <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 <!-- Encabezado de la pagina -->
-<nav class="flex flex-row p-1 max-w-screen justify-between items-center ">
+<nav class="flex flex-row p-1 max-w-screen justify-between items-center sticky top-0 backdrop-blur-md bg-white/30 z-10 ">
 <div class="flex ml-12 ">
             <img class="" src="../src/img/icons/bienescompartidosCL.svg" alt="" width="127.78px" height="33px">
             <a href="../index.php" class="a-primary ">Inicio</a>
@@ -32,7 +32,7 @@
         </div>
 </nav>
 
-<main class="flex flex-grow bg-cover bg-center " style="background-image:url(../src/img/fondovilaher.jpg) ;">
+<main class="flex flex-grow bg-cover bg-center " >
 
     <!-- login de Bienes Compartidos para hacesor -->
     <article id="devblog" class=" bg-cover bg-center rounded-r-lg   flex flex-initial w-4/6 "
@@ -61,12 +61,12 @@
                 <div class="mt-3">
                     <label for="username" class="block text-base mb-2">Usuario</label>
                     <input type="text" id="username" name="username" class="  input-prymary w-full"
-                           placeholder="Usuario..."/>
+                           placeholder="Usuario..." required/>
                 </div>
                 <div class="mt-3">
                     <label for="password" class="block text-base mb-2">Contraseña</label>
                     <input type="password" id="password" name="password" class="input-prymary w-full"
-                           placeholder="Contraseña..."/>
+                           placeholder="Contraseña..." required/>
                 </div>
 
 

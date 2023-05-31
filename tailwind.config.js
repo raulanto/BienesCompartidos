@@ -17,10 +17,8 @@ module.exports = {
                 fondomain: 'url("../src/img/grupo.png")',
                 fondoRegistro: 'url("../src/img/fondoRegistro.png")',
                 fondo2: 'url("../src/img/fondo3.png")',
-                bienescompartidosBL:
-                    'url("../src/img/icons/bienescompartidosBL.svg")',
-                bienescompartidosCL:
-                    'url("../src/img/icons/bienescompartidosCL.svg")',
+                bienescompartidosBL:'url("../src/img/icons/bienescompartidosBL.svg")',
+                bienescompartidosCL:'url("../src/img/icons/bienescompartidosCL.svg")',
                 fondoIndex: 'url("../src/img/Desktop.png")',
                 fondoIndexabajo: 'url("../src/img/fondo4.png")',
             },

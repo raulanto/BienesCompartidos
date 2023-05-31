@@ -34,13 +34,13 @@
     <header class="flex flex-col min-h-screen bg-fondoRegistro bg-center">
 
         <section class="flex flex-col justify-center items-center py-7">
-            <div class="max-w-screen-md">
+            <div class="max-w-screen-md ">
                 <img src="src/img/logo3.png" alt="">
             </div>
             <h1 class="text-6xl font-extrabold "> BienesCompartidos</h1>
             <br>
             <div class="flex ">
-                <a href="public/index.php" class="button-tercery ">
+                <a href="public/index.php" class="button-tercery animate-pulse">
                     Iniciar
                 </a>
                 <a href="#parte1" class="mx-2  button-prymary ">

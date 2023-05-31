@@ -5,7 +5,7 @@
 /* Componentes  */
 @layer components {
   .a-primary {
-    @apply mx-3 self-center w-fit h-fit hover:underline hover:text-purple-600  transition-all;
+    @apply mx-3 self-center w-fit h-fit font-bold hover:underline hover:text-purple-600  transition-all;
   }
   /* Botones */
   .button-orange {
